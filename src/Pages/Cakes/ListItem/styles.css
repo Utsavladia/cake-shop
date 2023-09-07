@@ -45,8 +45,8 @@
 @media screen and (max-width: 700px) {
   .cake-card {
     width: 45%;
-    height: 200px;
-    margin: 3px;
+    height: 250px;
+    margin: 5px;
     border-radius: 10px;
   }
   .cake-list {
@@ -56,7 +56,7 @@
   .cake-card img {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    height: 60%;
+    height: 70%;
   }
   .cake-card header {
     padding: 0px;
