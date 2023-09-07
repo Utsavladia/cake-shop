@@ -76,3 +76,13 @@
   font-weight: 500;
   background-color: orange;
 }
+
+@media screen and (max-width: 700px){
+  .modal-content {
+    width: 70%;
+    flex-direction: column;
+  }
+
+
+
+}

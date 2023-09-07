@@ -1,0 +1,42 @@
+{
+  "files": {
+    "main.css": "/static/css/main.0d923f67.chunk.css",
+    "main.js": "/static/js/main.b6b895d7.chunk.js",
+    "main.js.map": "/static/js/main.b6b895d7.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.cab49317.js",
+    "runtime-main.js.map": "/static/js/runtime-main.cab49317.js.map",
+    "static/js/2.5dd78c10.chunk.js": "/static/js/2.5dd78c10.chunk.js",
+    "static/js/2.5dd78c10.chunk.js.map": "/static/js/2.5dd78c10.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.2ca6c6c3f7aaed0f3ec7a69a5fab31dc.js": "/precache-manifest.2ca6c6c3f7aaed0f3ec7a69a5fab31dc.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.0d923f67.chunk.css.map": "/static/css/main.0d923f67.chunk.css.map",
+    "static/js/2.5dd78c10.chunk.js.LICENSE.txt": "/static/js/2.5dd78c10.chunk.js.LICENSE.txt",
+    "static/media/Black-Forest-Cakes_web.webp": "/static/media/Black-Forest-Cakes_web.895577c6.webp",
+    "static/media/Butterscotch-Cakes_web.webp": "/static/media/Butterscotch-Cakes_web.5e4e595b.webp",
+    "static/media/Dollcake.png": "/static/media/Dollcake.1eb83b31.png",
+    "static/media/Fresh-Fruit-Cakes_web.webp": "/static/media/Fresh-Fruit-Cakes_web.f28eb71f.webp",
+    "static/media/Photocake.png": "/static/media/Photocake.32040ef2.png",
+    "static/media/Pineapple-Cakes_web.webp": "/static/media/Pineapple-Cakes_web.0c8191ad.webp",
+    "static/media/Red-Velvet-Cakes_web.webp": "/static/media/Red-Velvet-Cakes_web.09cbaa82.webp",
+    "static/media/Truffle-Cakes_web.webp": "/static/media/Truffle-Cakes_web.81976570.webp",
+    "static/media/Vanila-Cakes_web.webp": "/static/media/Vanila-Cakes_web.5674f025.webp",
+    "static/media/bombcake.png": "/static/media/bombcake.e229a8e5.png",
+    "static/media/butterscotch_3.jpg": "/static/media/butterscotch_3.60588198.jpg",
+    "static/media/choco_chips.jpg": "/static/media/choco_chips.42f9efb6.jpg",
+    "static/media/chocolate_loaded.jpg": "/static/media/chocolate_loaded.51e1ccdb.jpg",
+    "static/media/kitkat.jpg": "/static/media/kitkat.47342464.jpg",
+    "static/media/lavender_vanila.jpg": "/static/media/lavender_vanila.1cc4f877.jpg",
+    "static/media/pinatacake1.jpg": "/static/media/pinatacake1.056dfa3c.jpg",
+    "static/media/pink_doll.jpg": "/static/media/pink_doll.14baf4a2.jpg",
+    "static/media/rasmalai.jpg": "/static/media/rasmalai.c37618d2.jpg",
+    "static/media/spider_1.jpg": "/static/media/spider_1.cdd03fc7.jpg",
+    "static/media/yellowcake.jpeg": "/static/media/yellowcake.fddb6b70.jpeg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.cab49317.js",
+    "static/js/2.5dd78c10.chunk.js",
+    "static/css/main.0d923f67.chunk.css",
+    "static/js/main.b6b895d7.chunk.js"
+  ]
+}
