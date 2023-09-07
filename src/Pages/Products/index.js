@@ -1,5 +1,6 @@
 import React from "react";
+import "./styles.css";
 
 export default function Products() {
-  return <div>product page</div>;
+  return <div className="heading">product page</div>;
 }

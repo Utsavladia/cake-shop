@@ -9,7 +9,7 @@ const Home = () => {
   const [selectedFlavors, setSelectedFlavors] = useState([]);
   const [selectedOccasions, setSelectedOccasions] = useState([]);
   const [selectedPounds, setSelectedPounds] = useState([]);
-  const [sortBy, setSortBy] = useState("popularity");
+  const [sortBy, setSortBy] = useState("");
   const [isFilterVisible, setIsFilterVisible] = useState(true); // Add state to track filter panel visibility
 
   // Function to toggle the filter panel visibility

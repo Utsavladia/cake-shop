@@ -46,7 +46,7 @@ export const Flavour = [
   },
   {
     title: "Truffle Cake",
-    image: "http://localhost:3000/static/media/chocolate_loaded.51e1ccdb.jpg",
+    image: "https://assets.winni.in/product/primary/2022/6/62086.jpeg?dpr=1&w=400",
     url: "../Cakes",
     alt: "Truffle-Cake"
   },

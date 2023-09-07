@@ -45,16 +45,16 @@
 @media screen and (max-width: 700px) {
   .bakers-text {
     padding: 0px 0px 0px 5px;
-    font-size: 35px;
+    font-size: 45px;
     height: 80px;
   }
   .img-container {
     padding: 10px 0 0 5px;
-    font-size: 50px;
+    font-size: 60px;
   }
 
   .home {
     padding: 100px 0 100px 10px;
-    background-position: 40% 20%;
+    background-position: 50% ;
   }
 }
