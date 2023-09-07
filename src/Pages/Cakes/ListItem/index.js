@@ -37,8 +37,8 @@ const ListItem = ({ searchQuery, filteredItems }) => {
             </p>
             <header>
               <div className="price-box">
-                <span className="rupee-sign">₹</span>
-                <span className="price">{item.price * item.pounds}</span>
+                <span id="rupee-sign">₹</span>
+                <span id="price">{item.price * item.pounds}</span>
               </div>
 
               <div className="rating-box">

@@ -42,45 +42,6 @@
   object-fit: cover;
 }
 
-@media screen and (max-width: 700px) {
-  .cake-card {
-    width: 45%;
-    height: 250px;
-    margin: 5px;
-    border-radius: 10px;
-  }
-  .cake-list {
-    gap: 5px;
-    padding: 0px;
-  }
-  .cake-card img {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    height: 70%;
-  }
-  .cake-card header {
-    padding: 0px;
-  }
-  .cake-details {
-    padding: 7px;
-  }
-
-  .cake-details h2 {
-    font-size: 12px;
-  }
-  .cake-details span {
-    font-size: 10px;
-  }
-  .rating-text {
-    line-height: auto;
-    padding: 0px;
-  }
-  .rating-box {
-    line-height: auto;
-    padding: 0px;
-    margin-top: 0px;
-  }
-}
 
 .rating-box {
   float: right;
@@ -109,4 +70,72 @@
 .flavour-pounds {
   display: flex;
   justify-content: space-between;
+}
+
+
+
+@media screen and (max-width: 700px) {
+  .cake-card {
+    width: 45%;
+    height: 250px;
+    margin: 5px;
+    border-radius: 10px;
+  }
+
+  .price-box{
+    font-size: 15px;
+  }
+  .cake-list {
+    gap: 5px;
+    padding: 0px;
+  }
+  .cake-card img {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 65%;
+  }
+  .cake-card header {
+    padding: 0px;
+  }
+  .cake-details {
+    padding: 7px;
+  }
+
+  .cake-details h2 {
+    font-size: 12px;
+  }
+  .cake-details span {
+    font-size: 11px;
+  }
+  #price{
+    font-size: 15px;
+    font-weight: 500;
+
+  }
+  #rupee-sign{
+    font-size: 15px;
+    font-weight: 500;
+    margin: 2px;
+
+  }
+  .rating-text span{
+    font-size:10px;
+  }
+  
+  .rating-text {
+    line-height: auto;
+    padding: 0px;
+  }
+
+  .header .price-box{
+    font-size: 20px;
+  }
+
+  .rating-box {
+    line-height: auto;
+    padding: 0px 10px 5px 10px;
+    margin-top: 0px;
+  }
+
+  
 }
