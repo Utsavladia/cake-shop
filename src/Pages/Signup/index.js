@@ -4,7 +4,7 @@ import React from 'react';
 import "./styles.css";
 
 function App() {
-  return (<div className='heading'><h1>signup page</h1></div>
+  return (<div className='head'><h1>signup page</h1></div>
   );
 }
 

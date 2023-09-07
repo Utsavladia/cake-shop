@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.62835ac0.chunk.css",
-    "main.js": "/static/js/main.6e2c8fb1.chunk.js",
-    "main.js.map": "/static/js/main.6e2c8fb1.chunk.js.map",
+    "main.css": "/static/css/main.92870141.chunk.css",
+    "main.js": "/static/js/main.9a9dff12.chunk.js",
+    "main.js.map": "/static/js/main.9a9dff12.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.cab49317.js",
     "runtime-main.js.map": "/static/js/runtime-main.cab49317.js.map",
     "static/js/2.74fbfb84.chunk.js": "/static/js/2.74fbfb84.chunk.js",
     "static/js/2.74fbfb84.chunk.js.map": "/static/js/2.74fbfb84.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.d2427119290b2e6917e1ffa688b7b17d.js": "/precache-manifest.d2427119290b2e6917e1ffa688b7b17d.js",
+    "precache-manifest.60dc93fa33373429bcecc0e37211a5ad.js": "/precache-manifest.60dc93fa33373429bcecc0e37211a5ad.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.62835ac0.chunk.css.map": "/static/css/main.62835ac0.chunk.css.map",
+    "static/css/main.92870141.chunk.css.map": "/static/css/main.92870141.chunk.css.map",
     "static/js/2.74fbfb84.chunk.js.LICENSE.txt": "/static/js/2.74fbfb84.chunk.js.LICENSE.txt",
     "static/media/Black-Forest-Cakes_web.webp": "/static/media/Black-Forest-Cakes_web.895577c6.webp",
     "static/media/Butterscotch-Cakes_web.webp": "/static/media/Butterscotch-Cakes_web.5e4e595b.webp",
@@ -36,7 +36,7 @@
   "entrypoints": [
     "static/js/runtime-main.cab49317.js",
     "static/js/2.74fbfb84.chunk.js",
-    "static/css/main.62835ac0.chunk.css",
-    "static/js/main.6e2c8fb1.chunk.js"
+    "static/css/main.92870141.chunk.css",
+    "static/js/main.9a9dff12.chunk.js"
   ]
 }
