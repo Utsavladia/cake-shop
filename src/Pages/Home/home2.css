@@ -1,0 +1,156 @@
+.home2 {
+  height: auto;
+  background-color: white;
+  padding: 7px;
+}
+
+.part1 {
+  background: rgb(238, 174, 202);
+  background: radial-gradient(
+    circle,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(148, 187, 233, 1) 100%
+  );
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  padding: 20px 10px;
+}
+
+.heading {
+  text-align: left;
+  padding: 20px 30px;
+  color: #3d246c;
+  margin: 10px;
+}
+
+.flavour-cards {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  padding: 0px 30px;
+
+  /* Add negative margin to counteract the margin of flavour-card */
+}
+
+.flavour-card {
+  width: 22%;
+  height: auto;
+  padding: 15px; /* Add padding to create space between cards */
+  box-sizing: border-box;
+  text-decoration: none;
+  overflow: hidden;
+  margin-bottom: 20px;
+  border-radius: 10px;
+
+  /* Include padding in width calculation */
+}
+
+.flavour-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-image {
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.flavour-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.flavour-card:hover img {
+  transform: scale(1.1);
+}
+
+.flavour-title {
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #3d246c;
+  text-decoration-style: none;
+  font-size: 25px;
+  text-decoration: none;
+}
+
+.part2 {
+  background: rgb(255, 249, 183);
+  background: radial-gradient(
+    circle,
+    rgba(255, 249, 183, 1) 0%,
+    rgba(255, 134, 134, 1) 84%
+  );
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  padding: 20px 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.occ-cards {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  padding: 0px 30px;
+  /* Add negative margin to counteract the margin of flavour-card */
+}
+
+.occ-card {
+  width: 50%;
+  height: auto;
+  padding: 10px; /* Add padding to create space between cards */
+  box-sizing: border-box;
+  text-decoration: none;
+
+  /* Include padding in width calculation */
+}
+
+.occ-card:hover img {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform: scale(1.1);
+}
+
+.occ-card img {
+  max-width: 100%; /* Ensure images fit within the card width */
+  height: auto; /* Maintain aspect ratio */
+  display: block; /* Remove any extra spacing below the image */ /* Center align the images horizontally */
+  border-radius: 10px;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.3s ease;
+}
+
+.occ-title {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #3d246c;
+  text-decoration-style: none;
+  font-size: 30px;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 700px) {
+  .flavour-card {
+    width: 48%;
+  }
+  .flavour-title {
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+  .flavour-cards {
+    padding: 0px;
+  }
+  .occ-card {
+    width: 100%;
+    padding: 0px;
+  }
+}

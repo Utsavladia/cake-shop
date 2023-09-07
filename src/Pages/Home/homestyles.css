@@ -1,0 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=Chilanka&family=Poppins:wght@300&family=Tilt+Prism&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Chilanka&family=Poppins:wght@300&family=Roboto+Slab&family=Tilt+Prism&display=swap");
+
+.home {
+  background: bottom/cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  padding: 200px 0px 100px 100px;
+  height: 110vh;
+  width: 100%;
+  font-family: "Chilanka", cursive;
+  font-family: "Poppins", sans-serif;
+  font-family: "Tilt Prism", cursive;
+  font-weight: 500;
+  text-shadow: 0 0 15px #3d246c;
+  color: #3d246c;
+}
+
+.img-container {
+  width: 70%;
+  flex: 0 0 auto; /* Don't allow the image container to grow or shrink */
+  padding: 10px;
+  font-size: 100px;
+}
+
+.img-container img {
+  max-width: 100%; /* Ensure the image doesn't exceed its container */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.bakers-text {
+  height: 160px;
+  display: flex;
+  font-size: 70px;
+  align-items: center;
+  text-align: left;
+  color: #3d246c;
+  padding: 10px;
+  font-weight: 500;
+  text-shadow: 0 0 5px #3d246c;
+  font-family: "Roboto Slab", serif;
+  line-height: 80px;
+}
+
+@media screen and (max-width: 700px) {
+  .bakers-text {
+    padding: 0px 0px 0px 5px;
+    font-size: 35px;
+    height: 80px;
+  }
+  .img-container {
+    padding: 10px 0 0 5px;
+    font-size: 50px;
+  }
+
+  .home {
+    padding: 100px 0 100px 10px;
+    background-position: 40% 20%;
+  }
+}

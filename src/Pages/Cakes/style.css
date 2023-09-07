@@ -1,0 +1,108 @@
+.full-width {
+  width: 100%;
+}
+
+.cake-page {
+  background: linear-gradient(
+    101.9deg,
+    rgb(253, 183, 220) 25%,
+    rgb(240, 213, 190) 38.1%,
+    rgb(249, 240, 206) 55.5%,
+    rgb(253, 244, 210) 67.3%,
+    rgb(222, 248, 226) 85.2%,
+    rgb(200, 247, 242) 103.6%
+  );
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.search-area {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.search-area button {
+  padding: 10px 30px;
+  border-radius: 10px;
+}
+
+.filter-button {
+  position: relative;
+  padding: 8px 16px;
+  border: 2px solid #000;
+  border-radius: 15px;
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color 0.1s, color 0.3s;
+  font-size: 18px;
+}
+
+.filter-button.filled {
+  background-color: #3d246c;
+  color: white;
+}
+
+.filter-button:hover {
+  background-color: #3d246c;
+  color: white;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.cake-area {
+  margin-top: 20px;
+  display: flex;
+  flex: 1;
+}
+
+.filter-panel {
+  flex-basis: 20%;
+}
+
+.cake-list-wrapper {
+  flex: 1;
+}
+
+.filter-parts {
+  margin: 10px 0px 30px 0px;
+}
+
+.filter-buttons {
+  margin-top: 20px;
+  margin-left: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: left;
+  border-radius: 15px;
+}
+
+@media screen and (max-width: 700px) {
+  .filter-button {
+    font-size: 15px;
+    padding: 6px 10px;
+    border-radius: 10px;
+  }
+  .filter-panel {
+    padding: 15px;
+  }
+  .filter-buttons {
+    margin-left: 0px;
+  }
+  .cake-page {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .search-area button {
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .cake-area {
+    flex-direction: column;
+  }
+}

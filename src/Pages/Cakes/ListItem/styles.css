@@ -1,0 +1,112 @@
+.cake-list {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px;
+  overflow-y: auto;
+  justify-content: space-evenly;
+  flex: 1;
+}
+
+.cake-card {
+  background-color: white;
+  border-radius: 15px;
+  width: 30%;
+  margin: 0 0 20px 0;
+  box-sizing: border-box;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  height: 400px;
+}
+.cake-details {
+  padding: 10px;
+}
+.cake-details p {
+  color: gray;
+  margin: 5px 0px;
+}
+
+.cake-card header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0px;
+}
+
+.cake-card img {
+  width: 100%;
+  height: 70%;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  object-position: center;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 700px) {
+  .cake-card {
+    width: 45%;
+    height: 200px;
+    margin: 3px;
+    border-radius: 10px;
+  }
+  .cake-list {
+    gap: 5px;
+    padding: 0px;
+  }
+  .cake-card img {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 60%;
+  }
+  .cake-card header {
+    padding: 0px;
+  }
+  .cake-details {
+    padding: 7px;
+  }
+
+  .cake-details h2 {
+    font-size: 12px;
+  }
+  .cake-details span {
+    font-size: 10px;
+  }
+  .rating-text {
+    line-height: auto;
+    padding: 0px;
+  }
+  .rating-box {
+    line-height: auto;
+    padding: 0px;
+    margin-top: 0px;
+  }
+}
+
+.rating-box {
+  float: right;
+  background: #49a316;
+  background-position: 0% 0%;
+  background-repeat: no-repeat;
+  padding: 0px 10px 5px 10px;
+  border-radius: 4px;
+  margin-top: 5px;
+}
+.rating-text {
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.starForProduct {
+  color: white;
+  margin-left: 5px;
+}
+
+.price {
+  font-weight: 700;
+  margin-left: 5px;
+}
+
+.flavour-pounds {
+  display: flex;
+  justify-content: space-between;
+}
