@@ -10,13 +10,13 @@
 .navitems {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   position: fixed;
   background: #3d246c;
   border-radius: 10px;
   width: 95%;
-  height: 70px;
-  padding: 0 30px;
+  height: auto;
+  padding: 20px 30px;
   top: 2px;
   font-size: 1.3rem;
   left: 2.5%;
@@ -31,21 +31,36 @@
   align-items: center;
   text-align: center;
   width: 90%;
+
+
 }
 
 .nav-links {
+
   text-decoration: none;
   color: #ffdbc3;
-  white-space: nowrap;
+  display: flow;
+  flex-wrap: wrap;
+  position: relative;
+
+
 }
+
+
 
 .nav-links i {
   padding-right: 10px;
+
 }
 
 .nav-links:hover {
   color: #ffdbc3;
   text-shadow: 0 0 4px #ffdbc3;
+}
+
+.nav-links:hover .dropdown{
+  display: flex;
+  flex-direction: column;
 }
 
 .fa-times,
@@ -61,7 +76,12 @@
   .navitems {
     z-index: 99;
   }
-  .nav-menu {
+
+  .navitems{
+    padding: 10px 20px 10px 20px;
+    font-size: 1.2rem;
+  }
+  /* .nav-menu {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -77,11 +97,11 @@
     align-items: stretch;
     z-index: -1;
     transition: all 0.3s ease-in-out;
-  }
+  } */
 
   .nav-links {
-    padding: 1.5rem 0;
     display: block;
+
   }
 
   .menu-icon {
@@ -89,8 +109,41 @@
   }
 }
 
-.nav-menu.active {
+/* .nav-menu.active {
   left: 0%;
-}
+} */
 
 /* Add this CSS to your existing styles */
+
+
+.dropdown {
+  display: none;
+  padding: 10px;
+  position: absolute;
+  top: 100%;
+  color: #ffdbc3;
+  left: 50%; /* Center horizontally relative to the parent */
+  transform: translateX(-50%); /* Adjust horizontally to center */
+  background: #3d246c;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  list-style: none;
+  border-radius: 10px;
+
+
+}
+
+.dropdown-items{
+  padding: 10px 20px;
+  color: #ffdbc3;
+  text-decoration: none;
+  text-shadow: none;
+
+}
+
+.dropdown-items:hover{
+  text-shadow: 0 0 4px #ffdbc3;
+
+
+}
+
