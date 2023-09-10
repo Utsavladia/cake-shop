@@ -4,9 +4,13 @@ const index = () => {
   return (
     <div>
     cart page
+    <br></br>
+    small cart routed
       
     </div>
   )
 }
 
-export default index
+export default index;
+
+

@@ -1,16 +1,30 @@
 import React, { useEffect, useState } from "react";
 import "./styles.css";
+import {auth, db} from "../../firebase"
 
-const CakeModal = ({ cake, onClose, onAddToCart }) => {
-  const [pounds, setPounds] = useState(1); // Initialize pounds with 1 pound
-  const [message, setMessage] = useState(""); // Initialize message as an empty string
+const CakeModal = ({ cake, onClose }) => {
+  const [pounds, setPounds] = useState(1);
+  const [message, setMessage] = useState("");
+
+
+
+
+
+
+  
 
   const handleClickOutside = (event) => {
     if (event.target.classList.contains("modal")) {
       onClose();
     }
   };
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside);
 
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [onClose]);
   const handleIncreasePounds = () => {
     // Increase pounds by 1 (you can adjust the step as needed)
     setPounds(pounds + 1);
@@ -22,17 +36,28 @@ const CakeModal = ({ cake, onClose, onAddToCart }) => {
       setPounds(pounds - 1);
     }
   };
-
-  useEffect(() => {
-    document.addEventListener("click", handleClickOutside);
-
-    return () => {
-      document.removeEventListener("click", handleClickOutside);
-    };
-  }, [onClose]);
-
   // Calculate the updated price based on pounds
   const updatedPrice = cake.price * pounds;
+
+
+
+
+
+  const handleAddToCart = ()=>{
+    console.log("add to cart called")
+    // const cakeWithDetails = {
+    //   ...cake,            // Copy the original cake details
+    //   pounds,             // Add selected pounds
+    //   message,            // Add the user's message
+    // };
+    // addToCart(cakeWithDetails);
+  }
+
+
+
+
+
+
 
   return (
     <div className="modal">
@@ -69,12 +94,10 @@ const CakeModal = ({ cake, onClose, onAddToCart }) => {
             value={message}
             onChange={(e) => setMessage(e.target.value)}
           />
-          <button
-            className="add-cart-button"
-            onClick={() => onAddToCart(cake, pounds, updatedPrice, message)}
-          >
-            Add to Cart
-          </button>
+          <button className="add-cart-button" onClick={handleAddToCart}>
+          add to cart
+        </button>
+        
         </header>
       </div>
     </div>

@@ -48,10 +48,10 @@ export default function Nav() {
           <i className="fa-solid fa-store"></i>
           Products
         </Link>
-        <Link to="/about" className="nav-links">
+        {/* <Link to="/about" className="nav-links">
           <i className="fa-solid fa-phone"></i>
           contact
-        </Link>
+        </Link> */}
         <li className="nav-links" onClick={handleDropdown}
         onMouseEnter={handleProfileMouseEnter}
           onMouseLeave={handleProfileMouseLeave}>

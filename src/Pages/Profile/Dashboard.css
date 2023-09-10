@@ -1,0 +1,48 @@
+
+
+
+  .dashboard{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; /* Add this to position the pseudo-element */
+  }
+  .dashboard::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("https://img.freepik.com/free-photo/top-view-pastel-color-party-tablewear_23-2147989401.jpg?w=996&t=st=1694353487~exp=1694354087~hmac=c836ece3b5468c7ea6014d89e0dc73f8f7c765271ad8c8f46fb5de64b1526915");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(5px);
+    z-index: -1; /* Ensure the pseudo-element is behind the content */
+  }
+  
+  .dashboard__container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: #dcdcdc;
+    padding: 50px 30px;
+    border-radius: 15px;
+    
+  }
+  .dashboard__btn {
+    padding: 10px;
+    font-size: 18px;
+    margin-top: 10px;
+    border: none;
+    color: white;
+    background-color:#a87ef7;
+  }
+  .dashboard div {
+    margin-top: 7px;
+  }
+
+  

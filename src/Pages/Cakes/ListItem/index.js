@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import "./styles.css"; // Import your external CSS file
 import CakeModal from "../CakeModel"; // Import your CakeModal component
 
-const ListItem = ({ searchQuery, filteredItems }) => {
+
+const ListItem = ({ searchQuery, filteredItems}) => {
   const filteredAndSearchedItems = filteredItems.filter(
     (item) =>
       item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -14,17 +15,20 @@ const ListItem = ({ searchQuery, filteredItems }) => {
 
   const handleCakeClick = (cake) => {
     setSelectedCake(cake);
+
   };
 
   const handleModalClose = () => {
     setSelectedCake(null);
   };
 
+
+
   return (
     <div className="cake-list">
-      {filteredAndSearchedItems.map((item, index) => (
+      {filteredAndSearchedItems.map((item) => (
         <div
-          key={index}
+          key={item.id}
           className="cake-card"
           onClick={() => handleCakeClick(item)}
         >
@@ -52,12 +56,9 @@ const ListItem = ({ searchQuery, filteredItems }) => {
 
       {selectedCake && (
         <CakeModal
-          cake={selectedCake}
-          onClose={handleModalClose}
-          onAddToCart={(cake) => {
-            // Implement your logic to add the cake to the cart here
-          }}
-        />
+    cake={selectedCake}
+    onClose={handleModalClose}
+  />
       )}
     </div>
   );

@@ -4,6 +4,14 @@ import SearchBar from "./SearchBar";
 import ListItem from "./ListItem";
 import dataList from "./Menu";
 
+import {auth, db} from "../firebase";
+import { useEffect } from "react";
+
+
+
+
+
+
 const Home = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedFlavors, setSelectedFlavors] = useState([]);
@@ -12,10 +20,29 @@ const Home = () => {
   const [sortBy, setSortBy] = useState("");
   const [isFilterVisible, setIsFilterVisible] = useState(true); // Add state to track filter panel visibility
 
+  
+
+
+
+  
+
+
+
+  
+    // Add the cart item to the user's cart collection in Firestore
+  
+    
+
+
+
+
+
   // Function to toggle the filter panel visibility
-  const toggleFilterPanel = () => {
-    setIsFilterVisible(!isFilterVisible);
-  };
+  // const toggleFilterPanel = () => {
+  //   setIsFilterVisible(!isFilterVisible);
+  // };
+  
+  
 
   // Function to toggle the dropdown panel visibility
 
@@ -221,7 +248,8 @@ const Home = () => {
           </div>
         </div>
         <div className="cake-list-wrapper">
-          <ListItem filteredItems={sortedItems} searchQuery={searchQuery} />
+          <ListItem filteredItems={sortedItems} searchQuery={searchQuery}
+/>
         </div>
       </div>
     </div>
