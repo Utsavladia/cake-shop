@@ -25,7 +25,7 @@ export default function App() {
           <Route path="/products" component={Products} />
           <Route path="/cart" component={Cart} />
           <Route path="/orders" component={Orders}/>
-          <Route path="/Login" component={Login}/>
+          <Route path="/login" component={Login}/>
           <Route path="/register" component={Register}/>
           <Route path="/reset" component={Reset}/>
           <Route path="/dashboard" component={Dashboard}/>

@@ -61,10 +61,10 @@ export default function Nav() {
             onMouseEnter={handleDropdownMouseEnter}
               onMouseLeave={handleDropdownMouseLeave}>
             
-            <Link to="/Cart" className="dropdown-items" >Cart</Link>
+            <Link to="/cart" className="dropdown-items" >Cart</Link>
         
-            <Link to="/Orders" className="dropdown-items">Orders</Link>
-            <Link to="/Login" className="dropdown-items">Login/out</Link>
+            <Link to="/orders" className="dropdown-items">Orders</Link>
+            <Link to="/login" className="dropdown-items">Login/out</Link>
 
             </ul>
             )
