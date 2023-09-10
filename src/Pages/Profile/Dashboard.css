@@ -7,22 +7,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative; /* Add this to position the pseudo-element */
-  }
-  .dashboard::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url("https://img.freepik.com/free-photo/top-view-pastel-color-party-tablewear_23-2147989401.jpg?w=996&t=st=1694353487~exp=1694354087~hmac=c836ece3b5468c7ea6014d89e0dc73f8f7c765271ad8c8f46fb5de64b1526915");
     background-position: center;
-    background-repeat: no-repeat;
     background-size: cover;
-    filter: blur(5px);
-    z-index: -1; /* Ensure the pseudo-element is behind the content */
+    background-image: url("https://static.vecteezy.com/system/resources/previews/004/930/819/original/cake-outline-icon-on-blue-background-candy-background-with-seamless-pattern-for-print-decorative-party-wallpaper-free-vector.jpg");
+    
   }
+  
   
   .dashboard__container {
     display: flex;
