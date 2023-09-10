@@ -6,12 +6,10 @@ import "./navstyles.css";
 export default function Nav() {
   const [clicked, setClicked] = useState(false);
   const [dropdown, setDropdownVisible] = useState(false);
-  const handleClick = () => {
-    setClicked(!clicked);
-  };
+
 
   const handleDropdown=() =>{
-    setDropdownVisible(!dropdown);
+    setDropdownVisible(true);
   }
 
   const handleProfileMouseEnter = () => {
@@ -53,8 +51,9 @@ export default function Nav() {
           contact
         </Link> */}
         <li className="nav-links" onClick={handleDropdown}
-        onMouseEnter={handleProfileMouseEnter}
-          onMouseLeave={handleProfileMouseLeave}>
+         onMouseEnter={handleProfileMouseEnter}
+           onMouseLeave={handleProfileMouseLeave}
+           >
           <i className="fa-solid fa-user"></i>
             Profile
             {dropdown && (
