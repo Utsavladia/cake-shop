@@ -35,11 +35,11 @@ const ItemOfCart = ({ item, onRemove }) => {
     <div className="cart-item-card">
       <img src={menuItem.image} alt="CakeImage" />
       <header>
-        <h1>{menuItem.name}</h1>
+        <p className="item-name">{menuItem.name}</p>
         <div>
 
         <span>
-          <div className="flavour-text-cart">flavour:{menuItem.flavour} </div>
+          <div className="flavour-text-cart">flavour :-{menuItem.flavour} </div>
         </span>
         <div className="rating-cart">
         <span className="rating-box-cart">
