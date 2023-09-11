@@ -5,6 +5,8 @@
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
     "@material-ui/icons": "4.11.3",
     "@material-ui/utils": "4.11.3",
     "@mui/icons-material": "5.11.11",

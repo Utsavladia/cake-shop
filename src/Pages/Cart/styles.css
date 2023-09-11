@@ -1,0 +1,245 @@
+.cart-page{
+    width: 100%;
+    padding: 70px 30px;
+    display: flex;
+    
+}
+
+.cart-container{
+    width: 70%;
+    height: auto;
+}
+.bill-container{
+    width: 30%;
+    height: auto;
+}
+.price-details{
+    width: 95%;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    padding: 10px;
+    margin: 30px 10px;
+}
+
+
+.cart-total{
+    width: 95%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    justify-content: flex-start;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+}
+
+
+
+.cart-item-card{
+    background-color: #fff; /* White background for the modal content */
+  width: 95%; /* 60% of the viewport width */
+  height: auto; /* 60% of the viewport height */
+  display: flex;
+  flex-direction: row; /* Content side-by-side */
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+}
+
+.cart-item-card img{
+    width: 30%;
+    object-fit: cover;
+    max-height: 100%;
+}
+
+.cart-item-card header {
+    padding: 20px 40px;
+    flex: 1; /* Share remaining space equally */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+
+.rupee-sign-cart,
+.price-cart {
+  font-size: 30px;
+}
+
+.pounds-text-cart {
+  float: right;
+  margin-bottom: 5px;
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.pounds-cart{
+    float:right;
+}
+
+.pound-options-cart button {
+    float:right;
+  width: 40px;
+  margin-right: 5px;
+  margin-left: 5px;
+  border-radius: 5px;
+
+
+  font-size: 25px;
+  font-weight: 400;
+  background-color: #FFD1DA;
+  margin-bottom: 10px;
+}
+
+.pound-options-cart button:hover{
+  background-color: #FBA1B7;
+}
+
+.message-cart {
+  height: auto;
+  width: 60%;
+  padding: 15px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;  font-size: 20px;
+  margin-top: 10px;
+}
+
+.flavour-text-cart{
+    width: 50%;
+    float: left;
+
+}
+
+.add-cart-button {
+  height: 40px;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: 500;
+  background-color: #FFA41B;
+  transition: background-color 0.3s ease; /* Animation duration and easing */
+
+}
+
+.remove-button-cart{
+    height: auto;
+    border-radius: 5px;
+    padding: 5px;
+  font-size: 20px;
+  font-weight: 500;
+  background-color: rgb(255, 255, 255);
+  transition: background-color 0.3s ease; /* Animation duration and easing */
+}
+
+.rating-cart{
+    width: 70%;
+}
+
+.remove-button-cart:hover{
+  background-color: #f60000;
+  color: white;
+
+}
+.add-cart-button.clicked{
+  background-color:  #49a316;
+  color: #ffffff;
+}
+
+.add-cart-button.clicked:hover{
+  background-color: #328104;
+}
+
+.added-text{
+  text-align: center;
+  padding: 10px;
+}
+
+
+.rating-box-cart {
+    float: left;
+    background: #49a316;
+    background-position: 0% 0%;
+    background-repeat: no-repeat;
+    padding: 0px 10px 5px 10px;
+    border-radius: 4px;
+    margin-top: 5px;
+  }
+
+  .rating-text-cart {
+    color: #ffffff;
+    font-size: 14px;
+  }
+  
+  .starForProduct-cart {
+    color: white;
+    margin-left: 5px;
+  }
+  
+  .price-cart {
+    font-weight: 700;
+    margin-left: 5px;
+  }
+  
+  .flavour-pounds-cart {
+    display: flex;
+    justify-content: space-between;
+  }
+
+
+
+  .price-box-cart{
+    float: right;
+
+  }
+
+@media screen and (max-width: 700px) {
+    .cart-container{
+        width: 100%;
+    }
+    .bill-container{
+        width: 100%;
+    }
+    .cart-page{
+        flex-direction: column;
+    }
+
+    
+    .rupee-sign-cart,
+    .price-cart {
+        font-size: 25px;
+    }
+    .pounds-text-cart {
+        font-size: 15px;
+    }
+    .pound-options-cart button {
+        width: 40px;
+        margin-right: 5px;
+
+        font-size: 25px;
+        font-weight: 400;
+        background-color: lightpink;
+    }
+    .message-cart {
+        height: auto;
+        padding: 5px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        font-size: 15px;
+    }
+  
+}
+
+
+
+
+
+
+

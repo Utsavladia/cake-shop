@@ -51,15 +51,24 @@
   float: inline-end;
   margin-bottom: 5px;
   font-size: 20px;
+  margin-top: 10px;
 }
 
 .pound-options button {
   width: 40px;
   margin-right: 5px;
+  margin-left: 5px;
+  border-radius: 5px;
+
 
   font-size: 25px;
   font-weight: 400;
-  background-color: lightpink;
+  background-color: #FFD1DA;
+  margin-bottom: 10px;
+}
+
+.pound-options button:hover{
+  background-color: #FBA1B7;
 }
 
 .message {
@@ -74,8 +83,30 @@
   border-radius: 5px;
   font-size: 20px;
   font-weight: 500;
-  background-color: orange;
+  background-color: #FFA41B;
+  transition: background-color 0.3s ease; /* Animation duration and easing */
+
 }
+
+
+.add-cart-button:hover{
+  background-color: #ff7300;
+
+}
+.add-cart-button.clicked{
+  background-color:  #49a316;
+  color: #ffffff;
+}
+
+.add-cart-button.clicked:hover{
+  background-color: #328104;
+}
+
+.added-text{
+  text-align: center;
+  padding: 10px;
+}
+
 
 @media screen and (max-width: 700px) {
   .modal-content {

@@ -4,7 +4,7 @@ import SearchBar from "./SearchBar";
 import ListItem from "./ListItem";
 import dataList from "./Menu";
 
-import {auth, db} from "../firebase";
+import {auth, db} from "../../firebase";
 import { useEffect } from "react";
 
 

@@ -1,12 +1,18 @@
 import React, { useEffect, useState } from "react";
 import "./styles.css";
-import {auth, db} from "../../firebase"
+import {auth, db, } from "../../../firebase"
+import { addDoc , collection } from "firebase/firestore"; 
+import { useHistory } from "react-router-dom";
+
+
 
 const CakeModal = ({ cake, onClose }) => {
   const [pounds, setPounds] = useState(1);
   const [message, setMessage] = useState("");
+  const [addedToCart, setAddedToCart] = useState(false);
 
 
+  const history = useHistory()
 
 
 
@@ -42,19 +48,39 @@ const CakeModal = ({ cake, onClose }) => {
 
 
 
+  const handleAddToCart = async() => {
+    if (!auth.currentUser) {
+      // Check if the user is authenticated
+      console.log("User is not logged in. Please log in to add items to the cart.");
+      return;
+    }
+    const cartItem = {
+      cakeId: cake.id,     // Assuming you have an 'id' property in your cake object
+      pounds,
+      message,
+    };  
+    const userId = auth.currentUser.uid;
 
-  const handleAddToCart = ()=>{
-    console.log("add to cart called")
-    // const cakeWithDetails = {
-    //   ...cake,            // Copy the original cake details
-    //   pounds,             // Add selected pounds
-    //   message,            // Add the user's message
-    // };
-    // addToCart(cakeWithDetails);
-  }
+    try{
+      if(!addedToCart){
+        await addDoc(collection(db , "cart"+userId), cartItem).then(() =>{
+          console.log("added to cart")
+          setAddedToCart(true);
+    
+        })
+      }
+      else{
+        history.push("/cart")
+      }
+    } catch(error){
+      console.error(error)
+    }
 
+    
+  };
+  
 
-
+const cartbuttontext = addedToCart? "Go to cart" : "Add to cart"
 
 
 
@@ -94,9 +120,12 @@ const CakeModal = ({ cake, onClose }) => {
             value={message}
             onChange={(e) => setMessage(e.target.value)}
           />
-          <button className="add-cart-button" onClick={handleAddToCart}>
-          add to cart
+          <br></br>
+          <button className={addedToCart? "add-cart-button clicked" : "add-cart-button" }  onClick={handleAddToCart}>
+          {cartbuttontext}
         </button>
+
+
         
         </header>
       </div>
@@ -105,3 +134,19 @@ const CakeModal = ({ cake, onClose }) => {
 };
 
 export default CakeModal;
+
+
+
+
+
+
+
+
+
+
+// const cakeWithDetails = {
+    //   ...cake,            // Copy the original cake details
+    //   pounds,             // Add selected pounds
+    //   message,            // Add the user's message
+    // };
+    // addToCart(cakeWithDetails);
