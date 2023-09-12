@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.88450b19.chunk.css",
-    "main.js": "/static/js/main.e969e9a1.chunk.js",
-    "main.js.map": "/static/js/main.e969e9a1.chunk.js.map",
+    "main.css": "/static/css/main.80da87f8.chunk.css",
+    "main.js": "/static/js/main.88d7156a.chunk.js",
+    "main.js.map": "/static/js/main.88d7156a.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.cab49317.js",
     "runtime-main.js.map": "/static/js/runtime-main.cab49317.js.map",
     "static/js/2.cc777429.chunk.js": "/static/js/2.cc777429.chunk.js",
     "static/js/2.cc777429.chunk.js.map": "/static/js/2.cc777429.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.3f3adbb0b7bb37ef0ea645e65d135268.js": "/precache-manifest.3f3adbb0b7bb37ef0ea645e65d135268.js",
+    "precache-manifest.861957c3e101c91e67f3f6bb340adfb7.js": "/precache-manifest.861957c3e101c91e67f3f6bb340adfb7.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.88450b19.chunk.css.map": "/static/css/main.88450b19.chunk.css.map",
+    "static/css/main.80da87f8.chunk.css.map": "/static/css/main.80da87f8.chunk.css.map",
     "static/js/2.cc777429.chunk.js.LICENSE.txt": "/static/js/2.cc777429.chunk.js.LICENSE.txt",
-    "static/js/main.e969e9a1.chunk.js.LICENSE.txt": "/static/js/main.e969e9a1.chunk.js.LICENSE.txt",
+    "static/js/main.88d7156a.chunk.js.LICENSE.txt": "/static/js/main.88d7156a.chunk.js.LICENSE.txt",
     "static/media/Black-Forest-Cakes_web.webp": "/static/media/Black-Forest-Cakes_web.895577c6.webp",
     "static/media/Butterscotch-Cakes_web.webp": "/static/media/Butterscotch-Cakes_web.5e4e595b.webp",
     "static/media/Dollcake.png": "/static/media/Dollcake.1eb83b31.png",
@@ -37,7 +37,7 @@
   "entrypoints": [
     "static/js/runtime-main.cab49317.js",
     "static/js/2.cc777429.chunk.js",
-    "static/css/main.88450b19.chunk.css",
-    "static/js/main.e969e9a1.chunk.js"
+    "static/css/main.80da87f8.chunk.css",
+    "static/js/main.88d7156a.chunk.js"
   ]
 }
