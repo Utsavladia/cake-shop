@@ -41,12 +41,13 @@ const ItemOfCart = ({ item, onRemove , updateTotalPrice }) => {
             <div className="flavour-text-cart">
             flavour - {menuItem.flavour}
             </div>
+            <span className="pounds-cart">  <b>{item.pounds} Pounds</b></span>
+
             <span className="rating-box-cart">
             <span className="rating-text-cart">{menuItem.rating}</span>
             <span className="starForProduct-cart">★</span>
             </span>
-            <span className="pounds-cart">  <b>{item.pounds} Pounds</b></span>
-
+            
         </div>
         <div>
             <p className="message-heading">Added messages </p>

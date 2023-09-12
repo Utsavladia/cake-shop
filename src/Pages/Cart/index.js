@@ -96,6 +96,7 @@ const Cart = () => {
       <p>Adding all items</p>
       <p>Total Price: ₹{totalPrice}</p>
       </div>
+      <button className="order-button">Place Order</button>
 
     </div>
 

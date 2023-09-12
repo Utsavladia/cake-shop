@@ -18,9 +18,10 @@
     align-items: center;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 15px;
+    border-radius: 10px;
     padding: 10px;
     margin: 30px 5px;
+    background-color: #cfcfcf;
 }
 
 
@@ -35,6 +36,22 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 20px;
     margin: 10px;
+}
+
+.order-button{
+  width: 95%;
+  height: auto;
+  padding: 15px;
+  border-radius: 15px;
+  margin: 10px;
+  font-size: 1.3em;
+  font-weight: 600;
+  background-color: rgb(255, 166, 0);
+
+}
+
+.order-button:hover{
+  background-color: rgb(255, 136, 0);
 }
 
 
@@ -117,7 +134,7 @@
 }
 
 .flavour-text-cart{
-    width: 50%;
+    width: 80%;
     float: left;
 
 }
@@ -244,17 +261,27 @@
         margin-bottom: 5px;
     }
 
+
     .rating-text-cart {
         color: #ffffff;
         font-size: 10px;
+        margin: 0px;
     }
 
     .starForProduct-cart {
     font-size: 10px;
+    margin: 0px;
+    margin-left: 5px;
     }
 
     .flavour-text-cart{
         font-size: 15px;
+        width: 80%;
+    }
+
+    .rating-box-cart{
+      padding: 0px 5px 2px 5px;
+
     }
 
 
@@ -263,7 +290,11 @@
     }
 
     .cart-item-card img{
-      width: 30%;
+      width: 32%;
+    }
+
+    .price-details{
+      margin: 10px 5px 10px 5px;
     }
 
 
@@ -297,6 +328,10 @@
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
         font-size: 10px;
+    }
+
+    .bill-container{
+      margin: 50px 0px 0px 0px;
     }
   
 }
