@@ -5,11 +5,14 @@
 }
 
 .part1 {
-  background: rgb(238, 174, 202);
-  background: radial-gradient(
-    circle,
-    rgba(238, 174, 202, 1) 0%,
-    rgba(148, 187, 233, 1) 100%
+  background: linear-gradient(
+    101.9deg,
+    rgb(253, 183, 220) 25%,
+    rgb(240, 213, 190) 38.1%,
+    rgb(249, 240, 206) 55.5%,
+    rgb(253, 183, 220) 67.3%,
+    rgb(253, 183, 220) 85.2%,
+    rgb(253, 183, 220) 103.6%
   );
   width: 100%;
   height: auto;
@@ -80,13 +83,8 @@
 }
 
 .part2 {
-  background: rgb(255, 249, 183);
-  background: radial-gradient(
-    circle,
-    rgba(255, 249, 183, 1) 0%,
-    rgba(255, 134, 134, 1) 84%
-  );
-  width: 100%;
+  background-color: paleturquoise ;
+  /* background: radial-gradient(circle at 10% 20%, rgb(222, 168, 248) 0%, rgb(168, 222, 248) 21.8%, rgb(189, 250, 205) 35.6%, rgb(243, 250, 189) 52.9%, rgb(250, 227, 189) 66.8%, rgb(248, 172, 172) 90%, rgb(254, 211, 252) 99.7%);  width: 100%; */
   height: auto;
   border-radius: 15px;
   padding: 20px 10px;
@@ -156,3 +154,11 @@
     padding: 0px;
   }
 }
+
+
+
+
+
+
+
+

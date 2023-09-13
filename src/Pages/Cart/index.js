@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./styles.css";
 import { auth, db } from "../../firebase";
-import { collection, query, getDocs, deleteDoc, doc } from "firebase/firestore";
+import { collection, query, getDocs, deleteDoc, doc, addDoc, serverTimestamp } from "firebase/firestore";
 import ItemOfCart from "./cartItem"
 import { onAuthStateChanged } from "firebase/auth";
+import {Link} from "react-router-dom"
 
 
 const Cart = () => {
@@ -73,6 +74,60 @@ const Cart = () => {
     setTotalPrice((prevTotalPrice) => prevTotalPrice + updatedPrice);
   };
 
+
+
+
+  const placeOrder = async () => {
+    try {
+      // Check if the user is authenticated
+      if (!auth.currentUser) {
+        console.log("User is not logged in. Please log in to place an order.");
+        return;
+      }
+  
+      const userId = auth.currentUser.uid;
+  
+      // Create a new order document in the "orders" collection
+      const orderRef = await addDoc(collection(db, "orders"), {
+        userId: userId,
+        items: cartItems, // Assuming cartItems contains the items in the cart
+        totalPrice: totalPrice,
+        timestamp: serverTimestamp(), // You can use Firestore's server timestamp
+      });
+  
+      console.log("Order placed successfully. Order ID:", orderRef.id);
+  
+      // Optionally, you can clear the cart after placing the order
+      // Clear the cart in Firestore (delete all documents in the user's cart collection)
+      const cartCollectionRef = collection(db, "cart" + userId);
+      const cartQuerySnapshot = await getDocs(cartCollectionRef);
+      cartQuerySnapshot.forEach(async (doc) => {
+        await deleteDoc(doc.ref);
+      });
+  
+      // Clear the cart items in the component state
+      setCartItems([]);
+      setTotalPrice(0);
+    } catch (error) {
+      console.error("Error placing the order:", error);
+    }
+  };
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   return (
     <div className="cart-page">
     <div className="cart-container">
@@ -96,7 +151,8 @@ const Cart = () => {
       <p>Adding all items</p>
       <p>Total Price: ₹{totalPrice}</p>
       </div>
-      <button className="order-button">Place Order</button>
+      <button className="order-button" onClick={placeOrder}>
+      <Link to="/orders"></Link>Place Order</button>
 
     </div>
 
