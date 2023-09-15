@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { db, auth } from "../../firebase";
-import { collection, query, getDocs, where } from "firebase/firestore"; // Import the necessary Firestore functions
+import { collection, query, getDocs, where ,orderBy} from "firebase/firestore"; // Import the necessary Firestore functions
 import "./styles.css";
 import ItemOfOrders from "./ItemOfOrders"
 
@@ -15,7 +15,9 @@ const OrderHistoryPage = () => {
         const userId = user.uid;
         
         const ordersCollectionRef = collection(db, "orders");
-        const q = query(ordersCollectionRef, where("userId", "==", userId));
+        const q = query(ordersCollectionRef, where("userId", "==", userId),
+        orderBy("timestamp", "desc") // Order by timestamp in descending order
+        );
         
         getDocs(q)
           .then((querySnapshot) => {
