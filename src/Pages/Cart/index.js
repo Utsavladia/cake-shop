@@ -45,13 +45,33 @@ const Cart = () => {
     return () => unsubscribe();
   }, []);
 
-  const removeFromCart = async (itemId, updatedPrice) => {
-    // ... Your existing code ...
+  const removeFromCart = async (itemId , updatedPrice) => {
+    try {
+      // Check if the user is authenticated
+      if (!auth.currentUser) {
+        console.log("User is not logged in. Please log in to remove items from the cart.");
+        return;
+      }
+
+      const userId = auth.currentUser.uid;
+      const cartItemRef = doc(db, "cart" + userId, itemId);
+
+      // Delete the cart item document
+      await deleteDoc(cartItemRef);
+      // Update the UI by removing the deleted item from the cartItems state
+      setCartItems((prevCartItems) => prevCartItems.filter((item) => item.id !== itemId));
+      setTotalPrice((prevPrice) => prevPrice - updatedPrice)
+      console.log("Item removed from the cart.");
+    } catch (error) {
+      console.error("Error removing item from the cart:", error);
+    }
   };
 
+
   const updateTotalPrice = (updatedPrice) => {
-    // ... Your existing code ...
+    setTotalPrice((prevTotalPrice) => prevTotalPrice + updatedPrice);
   };
+
 
   const placeOrder = async () => {
     try {
