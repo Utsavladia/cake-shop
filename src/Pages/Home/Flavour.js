@@ -11,49 +11,49 @@ export const Flavour = [
   {
     title: "Chocolate Cake",
     image: ChocolateCakeImage,
-    url: "../Cakes",
+    url: "/cakes/Chocolate",
     alt: "chocolate-cake"
   },
   {
     title: "Black Forest Cake",
     image: "https://assets.winni.in/product/primary/2022/9/73561.jpeg?dpr=1&w=400",
-    url: "../Cakes",
+    url: "/cakes/Black%20Forest",
     alt: "Black-Forest-Cakes"
   },
   {
     title: "Butterscotch Cake",
     image: "https://assets.winni.in/product/primary/2022/9/74609.jpeg?dpr=1&w=400",
-    url: "../Cakes",
+    url: "/cakes/Butterscotch",
     alt: "Butterscotch-Cake"
   },
   {
     title: "Fresh Fruit Cake",
     image: "https://assets.winni.in/product/primary/2022/10/75596.jpeg?dpr=1&w=400",
-    url: "../Cakes",
+    url: "/cakes",
     alt: "Fresh-Fruit-Cake"
   },
   {
     title: "Red Velvet Cake",
     image: "https://assets.winni.in/product/primary/2022/12/80571.jpeg?dpr=1&w=400",
-    url: "../Cakes",
+    url: "/cakes/Red%20Valvet",
     alt: "Red-Velvet-Cake"
   },
   {
     title: "Vanilla Cake",
     image:"https://assets.winni.in/product/primary/2023/8/88014.jpeg?dpr=1&w=400",
-    url: "../Cakes",
+    url: "/cakes/Vanilla",
     alt: "vanilla-Cake"
   },
   {
     title: "Truffle Cake",
     image: "https://assets.winni.in/product/primary/2022/6/62086.jpeg?dpr=1&w=400",
-    url: "../Cakes",
+    url: "/cakes/Chocolate",
     alt: "Truffle-Cake"
   },
   {
     title: "Pineapple Cake",
     image: "https://assets.winni.in/product/primary/2022/10/76504.jpeg?dpr=1&w=400",
-    url: "../Cakes",
+    url: "/cakes/Pineapple",
     alt: "Pineapple-Cake"
   }
 ];

@@ -46,12 +46,16 @@
   overflow: hidden;
   margin-bottom: 20px;
   border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(10px);
+
 
   /* Include padding in width calculation */
 }
 
 .flavour-card:hover {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+
 }
 
 .card-image {
@@ -83,8 +87,9 @@
 }
 
 .part2 {
-  background-color: paleturquoise ;
-  /* background: radial-gradient(circle at 10% 20%, rgb(222, 168, 248) 0%, rgb(168, 222, 248) 21.8%, rgb(189, 250, 205) 35.6%, rgb(243, 250, 189) 52.9%, rgb(250, 227, 189) 66.8%, rgb(248, 172, 172) 90%, rgb(254, 211, 252) 99.7%);  width: 100%; */
+  background-color: #8EC5FC;
+  background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+    /* background: radial-gradient(circle at 10% 20%, rgb(222, 168, 248) 0%, rgb(168, 222, 248) 21.8%, rgb(189, 250, 205) 35.6%, rgb(243, 250, 189) 52.9%, rgb(250, 227, 189) 66.8%, rgb(248, 172, 172) 90%, rgb(254, 211, 252) 99.7%);  width: 100%; */
   height: auto;
   border-radius: 15px;
   padding: 20px 10px;
@@ -97,7 +102,7 @@
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: space-evenly;
-  padding: 0px 30px;
+  padding: 0px 60px;
   /* Add negative margin to counteract the margin of flavour-card */
 }
 
@@ -107,6 +112,7 @@
   padding: 10px; /* Add padding to create space between cards */
   box-sizing: border-box;
   text-decoration: none;
+  
 
   /* Include padding in width calculation */
 }

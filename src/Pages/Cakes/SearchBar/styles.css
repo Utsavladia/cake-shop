@@ -6,13 +6,19 @@
 }
 
 .search-icon {
-  margin: 10px 20px;
-  color: gray;
+  margin: 10px 15px;
+  color: rgb(88, 88, 88);
 }
 
 .search-bar input {
   border: none;
   outline: none;
   font-size: 1.3rem;
-  background: transparent;
+  background:transparent;
 }
+
+.search-bar input::placeholder{
+  color: rgb(88, 88, 88);
+}
+
+

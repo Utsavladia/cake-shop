@@ -1,11 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./style.css";
 import SearchBar from "./SearchBar";
 import ListItem from "./ListItem";
 import dataList from "./Menu";
 
-import {auth, db} from "../../firebase";
-import { useEffect } from "react";
 
 
 
@@ -20,31 +18,47 @@ const Home = () => {
   const [sortBy, setSortBy] = useState("");
   const [isFilterVisible, setIsFilterVisible] = useState(true); // Add state to track filter panel visibility
 
+  const [isSearchBarVisible, setIsSearchBarVisible] = useState(true);
+
+  // Add a state variable to track the previous scroll position
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+
+
+
+
+
+
   
 
 
 
-  
+// search bar area scrolling effect
+  useEffect(() => {
+    // Function to handle scroll event
+    const handleScroll = () => {
+      const currentScrollPos = window.scrollY;
 
+      if (currentScrollPos > prevScrollPos) {
+        // Scrolling down, make the search bar invisible
+        setIsSearchBarVisible(false);
+      } else {
+        // Scrolling up, make the search bar visible
+        setIsSearchBarVisible(true);
+      }
 
+      // Update the previous scroll position
+      setPrevScrollPos(currentScrollPos);
+    };
 
-  
-    // Add the cart item to the user's cart collection in Firestore
-  
-    
+    // Add a scroll event listener
+    window.addEventListener("scroll", handleScroll);
 
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [prevScrollPos]);
 
-
-
-
-  // Function to toggle the filter panel visibility
-  // const toggleFilterPanel = () => {
-  //   setIsFilterVisible(!isFilterVisible);
-  // };
-  
-  
-
-  // Function to toggle the dropdown panel visibility
 
   const handleFlavorButtonClick = (flavor) => {
     if (selectedFlavors.includes(flavor)) {
@@ -97,12 +111,15 @@ const Home = () => {
 
   return (
     <div className="cake-page">
-      <div className={`search-area ${isFilterVisible ? "" : "full-width"}`}>
+      <div className={`search-area ${isSearchBarVisible ? "visible" : ""}`}>
+        <button className="filter-button"
+        onClick={() => setIsFilterVisible(!isFilterVisible)}>{isFilterVisible? "Filters": "Apply"}</button>
         <SearchBar onChange={setSearchQuery} />
       </div>
 
-      <div className={`cake-area ${isFilterVisible ? "" : "full-width"}`}>
-        <div className="filter-panel">
+      <div className="cake-area">
+        <div className={`filter-panel ${isFilterVisible ? "visible": ""}`}
+        >
           <div className="filter-parts">
             <h1>Flavours</h1>
             <div className="filter-buttons">
