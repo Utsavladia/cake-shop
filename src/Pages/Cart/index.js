@@ -4,7 +4,11 @@ import { auth, db } from "../../firebase";
 import { collection, query, getDocs, deleteDoc, doc, addDoc, serverTimestamp } from "firebase/firestore";
 import ItemOfCart from "./cartItem"
 import { onAuthStateChanged } from "firebase/auth";
-import { Link, useHistory } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom";
+import axios from 'axios';
+
+
+
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -13,6 +17,38 @@ const Cart = () => {
   const [orderPlaced, setOrderPlaced] = useState(false); // Track if the order has been placed
   const [redirectTimer, setRedirectTimer] = useState(null); // Timer for redirection
   const history = useHistory();
+
+  const sendSMS = async (to, body) => {
+  try {
+    const response = await axios.post(
+      'https://us-central1-twilio-backend-fd5ca.cloudfunctions.net/smsFunction',
+      {
+        to,   // Replace with the recipient's phone number
+        body, // Replace with your message
+      }
+    );
+
+    // Check if the response status is successful (HTTP status 200)
+    if (response.status === 200) {
+      console.log('SMS sent successfully:', response.data.message);
+      // Handle success (e.g., show a success message to the user)
+    } else {
+      console.error('Error sending SMS:', response.statusText);
+      // Handle the error (e.g., show an error message to the user)
+    }
+  } catch (error) {
+    console.error('Error sending SMS:', error);
+    // Handle the error (e.g., show an error message to the user)
+  }
+};
+
+
+
+
+
+
+
+
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -90,6 +126,15 @@ const Cart = () => {
         totalPrice: totalPrice,
         timestamp: serverTimestamp(), // You can use Firestore's server timestamp
       });
+
+      const ownerPhoneNumber = '+916205053855'; // Replace with the owner's phone number
+    const message = `New order placed by user ${userId}. Total price: ₹${totalPrice}`;
+    
+    await sendSMS(ownerPhoneNumber, message);
+
+
+
+
 
       setButtonText("Order Placed");
       setOrderPlaced(true); // Set orderPlaced to true when the order is placed

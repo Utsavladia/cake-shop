@@ -27,7 +27,7 @@ exports.sendOrderSMS = https.onCall(async (data, context) => {
     await twilioClient.messages.create({
       body: message,
       from: "+1234567890", // Your Twilio phone number
-      to: "+9876543210", // Owner's phone number
+      to: "+916205053855", // Owner's phone number
     });
 
     return { success: true };
