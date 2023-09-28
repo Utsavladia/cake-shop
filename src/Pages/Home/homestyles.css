@@ -57,6 +57,7 @@
     margin-top: 20px;
     align-items: center;
     text-align: center;
+    height: fit-content;
   }
   .bakers-text {
     padding: 0px 0px 0px 5px;

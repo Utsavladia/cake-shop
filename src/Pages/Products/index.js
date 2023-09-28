@@ -20,7 +20,9 @@ export default function Products() {
           };
           productsData.push(product);
         });
-        setProducts(productsData);
+
+        const shuffledProducts = shuffleArray(productsData);
+        setProducts(shuffledProducts);
       } catch (error) {
         console.error("Error fetching products: ", error);
       }
@@ -28,6 +30,15 @@ export default function Products() {
 
     fetchData();
   }, []); // Empty dependency array means this effect runs once, similar to componentDidMount
+
+  const shuffleArray = (array) => {
+    const newArray = [...array];
+    for (let i = newArray.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+    }
+    return newArray;
+  };
 
   return (
     <div className="products-page">
