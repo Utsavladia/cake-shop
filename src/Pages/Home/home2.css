@@ -157,4 +157,9 @@
     width: 100%;
     padding: 0px;
   }
+
+  .heading {
+    font-size: 16px;
+    padding: 10px;
+  }
 }

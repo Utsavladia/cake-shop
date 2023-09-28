@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.78eba110.chunk.css",
+    "main.css": "/static/css/main.878f2b50.chunk.css",
     "main.js": "/static/js/main.4c75a046.chunk.js",
     "main.js.map": "/static/js/main.4c75a046.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.cab49317.js",
@@ -8,9 +8,9 @@
     "static/js/2.cb22c502.chunk.js": "/static/js/2.cb22c502.chunk.js",
     "static/js/2.cb22c502.chunk.js.map": "/static/js/2.cb22c502.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.fbb3108c8b37e23b3880fc30aa7b56f4.js": "/precache-manifest.fbb3108c8b37e23b3880fc30aa7b56f4.js",
+    "precache-manifest.d7402c5fd12773f17846333052cb5ec8.js": "/precache-manifest.d7402c5fd12773f17846333052cb5ec8.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.78eba110.chunk.css.map": "/static/css/main.78eba110.chunk.css.map",
+    "static/css/main.878f2b50.chunk.css.map": "/static/css/main.878f2b50.chunk.css.map",
     "static/js/2.cb22c502.chunk.js.LICENSE.txt": "/static/js/2.cb22c502.chunk.js.LICENSE.txt",
     "static/js/main.4c75a046.chunk.js.LICENSE.txt": "/static/js/main.4c75a046.chunk.js.LICENSE.txt",
     "static/media/Black-Forest-Cakes_web.webp": "/static/media/Black-Forest-Cakes_web.895577c6.webp",
@@ -37,7 +37,7 @@
   "entrypoints": [
     "static/js/runtime-main.cab49317.js",
     "static/js/2.cb22c502.chunk.js",
-    "static/css/main.78eba110.chunk.css",
+    "static/css/main.878f2b50.chunk.css",
     "static/js/main.4c75a046.chunk.js"
   ]
 }
