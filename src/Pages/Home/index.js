@@ -1,6 +1,5 @@
 import React from "react";
 import "./homestyles.css";
-import backgroundImage from "./yellowcake.jpeg";
 import Bakers from "./Bakers";
 import Part1 from "./Part1";
 import Part2 from "./Part2";
@@ -10,14 +9,14 @@ import "./home2.css";
 export default function Home() {
   return (
     <>
-      <div
-        className="home"
-        style={{ backgroundImage: `url(${backgroundImage})` }}
-      >
-        <div className="img-container">Sawariya</div>
+      <div className="home">
+        <div className="hero-home">
+          <div className="shop-name">Sawariya</div>
 
-        <div className="bakers-container">
-          <Bakers />
+          <div className="bakers-container">
+            <Bakers />
+          </div>
+          <div className="hero-small"></div>
         </div>
       </div>
       <div className="home2">

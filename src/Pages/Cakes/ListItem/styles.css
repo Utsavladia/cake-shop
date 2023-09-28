@@ -15,7 +15,7 @@
   width: 30%;
   margin: 0 0 20px 0;
   box-sizing: border-box;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  box-shadow: rgba(0, 0, 0, 0.44) 0px 3px 8px;
   height: 400px;
 }
 .cake-details {
@@ -41,7 +41,6 @@
   object-position: center;
   object-fit: cover;
 }
-
 
 .rating-box {
   float: right;
@@ -72,8 +71,6 @@
   justify-content: space-between;
 }
 
-
-
 @media screen and (max-width: 700px) {
   .cake-card {
     width: 45%;
@@ -82,7 +79,7 @@
     border-radius: 10px;
   }
 
-  .price-box{
+  .price-box {
     font-size: 15px;
   }
   .cake-list {
@@ -107,27 +104,25 @@
   .cake-details span {
     font-size: 11px;
   }
-  #price{
+  #price {
     font-size: 15px;
     font-weight: 500;
-
   }
-  #rupee-sign{
+  #rupee-sign {
     font-size: 15px;
     font-weight: 500;
     margin: 2px;
+  }
+  .rating-text span {
+    font-size: 10px;
+  }
 
-  }
-  .rating-text span{
-    font-size:10px;
-  }
-  
   .rating-text {
     line-height: auto;
     padding: 0px;
   }
 
-  .header .price-box{
+  .header .price-box {
     font-size: 20px;
   }
 
@@ -136,6 +131,4 @@
     padding: 0px 10px 5px 10px;
     margin-top: 0px;
   }
-
-  
 }

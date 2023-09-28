@@ -4,12 +4,6 @@ import SearchBar from "./SearchBar";
 import ListItem from "./ListItem";
 import dataList from "./Menu";
 
-
-
-
-
-
-
 const Home = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedFlavors, setSelectedFlavors] = useState([]);
@@ -23,16 +17,7 @@ const Home = () => {
   // Add a state variable to track the previous scroll position
   const [prevScrollPos, setPrevScrollPos] = useState(0);
 
-
-
-
-
-
-  
-
-
-
-// search bar area scrolling effect
+  // search bar area scrolling effect
   useEffect(() => {
     // Function to handle scroll event
     const handleScroll = () => {
@@ -58,7 +43,6 @@ const Home = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [prevScrollPos]);
-
 
   const handleFlavorButtonClick = (flavor) => {
     if (selectedFlavors.includes(flavor)) {
@@ -102,9 +86,9 @@ const Home = () => {
   let sortedItems = [...filteredItems];
 
   if (sortBy === "pricelow") {
-    sortedItems.sort((a, b) => a.price - b.price);
+    sortedItems.sort((a, b) => a.price * a.pounds - b.price * b.pounds);
   } else if (sortBy === "pricehigh") {
-    sortedItems.sort((a, b) => b.price - a.price);
+    sortedItems.sort((a, b) => b.price * b.pounds - a.price * a.pounds);
   } else if (sortBy === "popularity") {
     sortedItems.sort((a, b) => b.rating - a.rating); // Assuming 'reviews' property represents popularity
   }
@@ -112,14 +96,17 @@ const Home = () => {
   return (
     <div className="cake-page">
       <div className={`search-area ${isSearchBarVisible ? "visible" : ""}`}>
-        <button className="filter-button"
-        onClick={() => setIsFilterVisible(!isFilterVisible)}>{isFilterVisible? "Filters": "Apply"}</button>
+        <button
+          className="filter-button"
+          onClick={() => setIsFilterVisible(!isFilterVisible)}
+        >
+          {isFilterVisible ? "Filters" : "Apply"}
+        </button>
         <SearchBar onChange={setSearchQuery} />
       </div>
 
       <div className="cake-area">
-        <div className={`filter-panel ${isFilterVisible ? "visible": ""}`}
-        >
+        <div className={`filter-panel ${isFilterVisible ? "visible" : ""}`}>
           <div className="filter-parts">
             <h1>Flavours</h1>
             <div className="filter-buttons">
@@ -265,8 +252,7 @@ const Home = () => {
           </div>
         </div>
         <div className="cake-list-wrapper">
-          <ListItem filteredItems={sortedItems} searchQuery={searchQuery}
-/>
+          <ListItem filteredItems={sortedItems} searchQuery={searchQuery} />
         </div>
       </div>
     </div>

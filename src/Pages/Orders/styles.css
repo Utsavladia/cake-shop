@@ -1,135 +1,141 @@
-.Order-page{
-    width: 100%;
-    padding: 60px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-
+.Order-page {
+  width: 100%;
+  padding: 60px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
-.order-card{
-    display: flex;
-    justify-content: space-evenly;
-    border-top-right-radius: 15px;
-    border-top-left-radius: 15px;
-    width: 100%;
-    flex-direction: column;
-    overflow: hidden;
-    margin-bottom: 50px;
-    margin-top: 50px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-
-    
-
-    
+.order-card {
+  display: flex;
+  justify-content: space-evenly;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+  width: 100%;
+  flex-direction: column;
+  overflow: hidden;
+  margin-bottom: 50px;
+  margin-top: 50px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-.order-history{
+.order-history {
+  width: 100%;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 10px;
+  margin: 30px 5px;
+  background-color: #cfcfcf;
+}
+
+.order-id {
+  font-size: 12px;
+}
+.order-details {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #cfcfcf;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  padding: 10px;
+}
+
+.order-details-bottom {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background-color: #49a316;
+  color: white;
+
+  padding: 15px;
+}
+.order-items {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.order-item-card {
+  background-color: #fff; /* White background for the modal content */
+  width: 47%; /* 60% of the viewport width */
+  height: auto; /* 60% of the viewport height */
+  display: flex;
+  flex-direction: row; /* Content side-by-side */
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+}
+
+.order-item-card img {
+  width: 35%;
+  object-fit: cover;
+  max-height: 100%;
+}
+
+.order-item-card header {
+  padding: 20px 40px;
+  flex: 1; /* Share remaining space equally */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.stars {
+  width: 100%;
+  color: #49a316;
+  font-size: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.stars p {
+  font-size: 20px;
+  margin-top: 10px;
+}
+.order-rating {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 0px 10px 10px 10px;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.order-comment textarea {
+  width: 25%;
+  border-radius: 15px;
+  padding: 10px;
+}
+
+@media screen and (max-width: 700px) {
+  .order-item-card {
     width: 100%;
-    align-items: center;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    padding: 10px;
-    margin: 30px 5px;
-    background-color: #cfcfcf;
   }
 
-  .order-id{
-    font-size: 12px;
-  }
-.order-details{
-    width: 100%;
-    height: auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color:  #cfcfcf;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
-    padding: 10px;
-}
-
-.order-details-bottom{
-    width: 100%;
-    height: auto;
-    display: flex;
-    align-items: center;
-    justify-content:flex-end;
-    background-color:  #49a316;
-    color: white;
-   
-    padding: 15px;
-}
-.order-items{
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    padding:10px;
-}
-
-.order-item-card{
-    background-color: #fff; /* White background for the modal content */
-    width: 47%; /* 60% of the viewport width */
-    height: auto; /* 60% of the viewport height */
-    display: flex;
-    flex-direction: row; /* Content side-by-side */
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin: 10px;
-}
-
-.order-item-card img{
-    width: 35%;
-    object-fit: cover;
-    max-height: 100%;
-  }
-  
-  
   .order-item-card header {
-    padding: 20px 40px;
-    flex: 1; /* Share remaining space equally */
-    display: flex;
-    flex-direction: column;
-    justify-content:space-evenly;
+    padding: 15px 20px;
   }
 
-
-
-  @media screen and (max-width:700px) {
-    .order-item-card{
-        width: 100%;
-    }
-
-    .order-item-card header {
-      padding: 15px 20px;
-    }
-
-    .Order-page{
-      padding: 50px 10px;
-    }
-
-    .order-items{
-      padding: 10px 0px;
-    }
-
-    
-
-
-
-    
+  .Order-page {
+    padding: 50px 10px;
   }
 
-
-
-
-
-
-
-
-
-
+  .order-items {
+    padding: 10px 0px;
+  }
+}

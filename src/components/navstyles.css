@@ -32,26 +32,18 @@
   align-items: center;
   text-align: center;
   width: 90%;
-
-
 }
 
 .nav-links {
-
   text-decoration: none;
   color: #ffdbc3;
   display: flow;
   flex-wrap: wrap;
   position: relative;
-
-
 }
-
-
 
 .nav-links i {
   padding-right: 10px;
-
 }
 
 .nav-links:hover {
@@ -59,7 +51,7 @@
   text-shadow: 0 0 4px #ffdbc3;
 }
 
-.nav-links:hover .dropdown{
+.nav-links:hover .dropdown {
   display: flex;
   flex-direction: column;
 }
@@ -78,8 +70,8 @@
     z-index: 99;
   }
 
-  .navitems{
-    padding: 10px ;
+  .navitems {
+    padding: 10px;
     font-size: 1rem;
   }
   /* .nav-menu {
@@ -102,7 +94,6 @@
 
   .nav-links {
     display: block;
-
   }
 
   .menu-icon {
@@ -115,7 +106,6 @@
 } */
 
 /* Add this CSS to your existing styles */
-
 
 .dropdown {
   display: none;
@@ -130,21 +120,15 @@
   z-index: 1;
   list-style: none;
   border-radius: 10px;
-
-
 }
 
-.dropdown-items{
+.dropdown-items {
   padding: 10px 20px;
   color: #ffdbc3;
   text-decoration: none;
   text-shadow: none;
-
 }
 
-.dropdown-items:hover{
+.dropdown-items:hover {
   text-shadow: 0 0 4px #ffdbc3;
-
-
 }
-

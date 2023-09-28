@@ -1,0 +1,30 @@
+.admin-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.form-product {
+  width: 40%;
+  height: auto;
+  padding: 20px;
+  background-color: lavender;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-product input {
+  float: right;
+  width: 100%;
+  padding: 10px;
+}
+
+.form-product button {
+  width: 100%;
+  height: 40px;
+  background-color: orange;
+}

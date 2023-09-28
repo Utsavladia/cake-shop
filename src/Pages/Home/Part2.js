@@ -7,7 +7,9 @@ import "./home2.css";
 function Part2() {
   return (
     <div className="part2">
-      <h1 className="heading">Celebrate special Occasions</h1>
+      <div className="heading">
+        <h1>Celebrate Occasions</h1>
+      </div>
       <div className="occ-cards">
         {Occasion.map((item, index) => (
           <Link to={item.url} className="occ-card" key={index}>

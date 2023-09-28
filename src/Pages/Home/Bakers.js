@@ -8,10 +8,16 @@ function Bakers() {
 
   React.useEffect(() => {
     const typed = new Typed(el.current, {
-      strings: ["Cakes", "Sweets", "Namkeens", "Fast-foods"],
+      strings: [
+        "Cakes..",
+        "Sweets..",
+        "Namkeens..",
+        "Fast-foods..",
+        "Accessories..",
+      ],
       typeSpeed: 100,
       backSpeed: 100,
-      loop: true
+      loop: true,
     });
 
     return () => {
@@ -20,7 +26,15 @@ function Bakers() {
     };
   }, []);
 
-  return <span className="bakers-text" ref={el} />;
+  return (
+    <>
+      <div>
+        Delicious and best quality
+        <br></br>products like
+        <span className="bakers-text" ref={el} />
+      </div>
+    </>
+  );
 }
 
 export default Bakers;
