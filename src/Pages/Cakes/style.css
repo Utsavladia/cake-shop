@@ -62,12 +62,10 @@
   flex: 1;
 }
 
-
-.filter-panel.visible{
+.filter-panel.visible {
   flex-basis: 20%;
   display: block;
 }
-
 
 .cake-list-wrapper {
   flex: 1;
@@ -94,11 +92,11 @@
     border-radius: 10px;
   }
   .filter-panel.visible {
-    transform: translate(-100%);
+    transform: translate(-110%);
     transition: opacity 0.4s ease-in-out; /* Add a transition for opacity */
     padding: 15px;
   }
-  
+
   .filter-panel {
     transform: translate(0);
     position: fixed;
@@ -111,8 +109,6 @@
     border-radius: 15px;
     max-height: 70%;
     overflow-y: auto;
-
-
   }
   .filter-buttons {
     margin-top: 15px;
@@ -121,11 +117,11 @@
   }
   .cake-page {
     padding-top: 60px;
-    padding-left: 0px;
-    padding-right: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
   }
 
-  .search-area{
+  .search-area {
     width: 95%;
     background-color: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(20px);
@@ -135,15 +131,14 @@
     justify-content: space-between;
     padding: 0px 7px;
     transition: transform 0.2s ease-in-out; /* Add a transition for the transform property */
-  transform: translateY(-100%);
-    
+    transform: translateY(-100%);
   }
 
-  .search-area.visible{
+  .search-area.visible {
     transform: translateY(0);
   }
 
-  .search-area input::placeholder{
+  .search-area input::placeholder {
     font-size: 1rem;
   }
 
@@ -154,16 +149,13 @@
     background-color: #3d246c;
     color: #ffdbc3;
     font-size: medium;
-
-
   }
-  .filter-parts h1{
+  .filter-parts h1 {
     font-size: larger;
   }
 
-  .filter-parts{
+  .filter-parts {
     margin: 10px 0px 25px 0px;
-
   }
 
   .cake-area {
