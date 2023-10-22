@@ -4,6 +4,7 @@ import Bakers from "./Bakers";
 import Part1 from "./Part1";
 import Part2 from "./Part2";
 import Part3 from "./Part3";
+import Reviews from "./Reviews";
 import "./home2.css";
 
 export default function Home() {
@@ -23,6 +24,7 @@ export default function Home() {
         <Part1 />
         <Part2 />
         <Part3 />
+        <Reviews />
       </div>
     </>
   );

@@ -1,23 +1,15 @@
 import React, { useEffect, useState } from "react";
 import "./styles.css";
-import {auth, db, } from "../../../firebase"
-import { addDoc , collection } from "firebase/firestore"; 
+import { auth, db } from "../../../firebase";
+import { addDoc, collection } from "firebase/firestore";
 import { useHistory } from "react-router-dom";
-
-
 
 const CakeModal = ({ cake, onClose }) => {
   const [pounds, setPounds] = useState(1);
   const [message, setMessage] = useState("");
   const [addedToCart, setAddedToCart] = useState(false);
 
-
-  const history = useHistory()
-
-
-
-
-  
+  const history = useHistory();
 
   const handleClickOutside = (event) => {
     if (event.target.classList.contains("modal")) {
@@ -45,45 +37,37 @@ const CakeModal = ({ cake, onClose }) => {
   // Calculate the updated price based on pounds
   const updatedPrice = cake.price * pounds;
 
-
-
-
-  const handleAddToCart = async() => {
+  const handleAddToCart = async () => {
     if (!auth.currentUser) {
       // Check if the user is authenticated
-      console.log("User is not logged in. Please log in to add items to the cart.");
+      console.log(
+        "User is not logged in. Please log in to add items to the cart."
+      );
+      history.push("/login");
       return;
     }
     const cartItem = {
-      cakeId: cake.id,     // Assuming you have an 'id' property in your cake object
+      cakeId: cake.id, // Assuming you have an 'id' property in your cake object
       pounds,
       message,
-    };  
+    };
     const userId = auth.currentUser.uid;
 
-    try{
-      if(!addedToCart){
-        await addDoc(collection(db , "cart"+userId), cartItem).then(() =>{
-          console.log("added to cart")
+    try {
+      if (!addedToCart) {
+        await addDoc(collection(db, "cart" + userId), cartItem).then(() => {
+          console.log("added to cart");
           setAddedToCart(true);
-    
-        })
+        });
+      } else {
+        history.push("/cart");
       }
-      else{
-        history.push("/cart")
-      }
-    } catch(error){
-      console.error(error)
+    } catch (error) {
+      console.error(error);
     }
-
-    
   };
-  
 
-const cartbuttontext = addedToCart? "Go to cart" : "Add to cart"
-
-
-
+  const cartbuttontext = addedToCart ? "Go to cart" : "Add to cart";
 
   return (
     <div className="modal">
@@ -121,12 +105,14 @@ const cartbuttontext = addedToCart? "Go to cart" : "Add to cart"
             onChange={(e) => setMessage(e.target.value)}
           />
           <br></br>
-          <button className={addedToCart? "add-cart-button clicked" : "add-cart-button" }  onClick={handleAddToCart}>
-          {cartbuttontext}
-        </button>
-
-
-        
+          <button
+            className={
+              addedToCart ? "add-cart-button clicked" : "add-cart-button"
+            }
+            onClick={handleAddToCart}
+          >
+            {cartbuttontext}
+          </button>
         </header>
       </div>
     </div>
@@ -135,18 +121,9 @@ const cartbuttontext = addedToCart? "Go to cart" : "Add to cart"
 
 export default CakeModal;
 
-
-
-
-
-
-
-
-
-
 // const cakeWithDetails = {
-    //   ...cake,            // Copy the original cake details
-    //   pounds,             // Add selected pounds
-    //   message,            // Add the user's message
-    // };
-    // addToCart(cakeWithDetails);
+//   ...cake,            // Copy the original cake details
+//   pounds,             // Add selected pounds
+//   message,            // Add the user's message
+// };
+// addToCart(cakeWithDetails);
