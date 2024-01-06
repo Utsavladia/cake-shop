@@ -86,11 +86,11 @@ export default function Reviews() {
       </div>
       <div className="review-section">
         <Carousel
-          showArrows={true}
+          showArrows={false}
           showThumbs={true}
           infiniteLoop={true}
           autoPlay={true}
-          interval={5000}
+          interval={2000}
           showStatus={false}
         >
           {reviews.map((review) => (
