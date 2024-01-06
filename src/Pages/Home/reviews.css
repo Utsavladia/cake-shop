@@ -8,6 +8,8 @@
 .review-section {
   width: 90%;
   height: auto;
+  overflow: hidden;
+  border-radius: 10px;
 }
 
 .reviews {
@@ -26,6 +28,7 @@
   margin-bottom: 50px;
   align-items: center;
   gap: 40px;
+  overflow: hidden;
 }
 
 .review-img {

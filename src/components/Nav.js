@@ -68,9 +68,9 @@ export default function Nav() {
               <Link to="/login" className="dropdown-items">
                 Login/out
               </Link>
-              <Link to="/admin" className="dropdown-items">
+              {/* <Link to="/admin" className="dropdown-items">
                 Admin
-              </Link>
+              </Link> */}
             </ul>
           )}
         </li>
