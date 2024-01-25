@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .search-bar {
   display: flex;
   align-items: center;
@@ -14,11 +18,9 @@
   border: none;
   outline: none;
   font-size: 1.3rem;
-  background:transparent;
+  background: transparent;
 }
 
-.search-bar input::placeholder{
+.search-bar input::placeholder {
   color: rgb(88, 88, 88);
 }
-
-

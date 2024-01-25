@@ -1,6 +1,8 @@
+/* src/styles.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* Your other styles or imports */
 
 * {
   margin: 0;

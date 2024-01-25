@@ -1,55 +1,58 @@
 import React, { useEffect, useState } from "react";
 import "./styles.css";
 import { auth, db } from "../../firebase";
-import { collection, query, getDocs, deleteDoc, doc, addDoc, serverTimestamp } from "firebase/firestore";
-import ItemOfCart from "./cartItem"
+import {
+  collection,
+  query,
+  getDocs,
+  deleteDoc,
+  doc,
+  addDoc,
+  serverTimestamp,
+  onSnapshot,
+} from "firebase/firestore";
+import ItemOfCart from "./cartItem";
 import { onAuthStateChanged } from "firebase/auth";
 import { Link, useHistory } from "react-router-dom";
-import axios from 'axios';
-
-
-
+import axios from "axios";
+import CartProductCard from "./CartProductCard";
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
+  const [totalpPrice, setTotalpPrice] = useState(0);
   const [buttonText, setButtonText] = useState("Place Order");
   const [orderPlaced, setOrderPlaced] = useState(false); // Track if the order has been placed
   const [redirectTimer, setRedirectTimer] = useState(null); // Timer for redirection
+  const [user, setUser] = useState(null);
+  const [productCart, setProductCart] = useState([]);
   const history = useHistory();
 
   const sendSMS = async (to, body) => {
-  try {
-    const response = await axios.post(
-      'https://us-central1-twilio-backend-fd5ca.cloudfunctions.net/smsFunction',
-      {
-        to,   // Replace with the recipient's phone number
-        body, // Replace with your message
-      }
-    );
+    try {
+      const response = await axios.post(
+        "https://us-central1-twilio-backend-fd5ca.cloudfunctions.net/smsFunction",
+        {
+          to, // Replace with the recipient's phone number
+          body, // Replace with your message
+        }
+      );
 
-    // Check if the response status is successful (HTTP status 200)
-    if (response.status === 200) {
-      console.log('SMS sent successfully:', response.data.message);
-      // Handle success (e.g., show a success message to the user)
-    } else {
-      console.error('Error sending SMS:', response.statusText);
+      // Check if the response status is successful (HTTP status 200)
+      if (response.status === 200) {
+        console.log("SMS sent successfully:", response.data.message);
+        // Handle success (e.g., show a success message to the user)
+      } else {
+        console.error("Error sending SMS:", response.statusText);
+        // Handle the error (e.g., show an error message to the user)
+      }
+    } catch (error) {
+      console.error("Error sending SMS:", error);
       // Handle the error (e.g., show an error message to the user)
     }
-  } catch (error) {
-    console.error('Error sending SMS:', error);
-    // Handle the error (e.g., show an error message to the user)
-  }
-};
+  };
 
-
-
-
-
-
-
-
-
+  // cakes cart items fetching...
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -81,11 +84,14 @@ const Cart = () => {
     return () => unsubscribe();
   }, []);
 
-  const removeFromCart = async (itemId , updatedPrice) => {
+  // remove of cake function...
+  const removeFromCart = async (itemId, updatedPrice) => {
     try {
       // Check if the user is authenticated
       if (!auth.currentUser) {
-        console.log("User is not logged in. Please log in to remove items from the cart.");
+        console.log(
+          "User is not logged in. Please log in to remove items from the cart."
+        );
         return;
       }
 
@@ -95,19 +101,90 @@ const Cart = () => {
       // Delete the cart item document
       await deleteDoc(cartItemRef);
       // Update the UI by removing the deleted item from the cartItems state
-      setCartItems((prevCartItems) => prevCartItems.filter((item) => item.id !== itemId));
-      setTotalPrice((prevPrice) => prevPrice - updatedPrice)
+      setCartItems((prevCartItems) =>
+        prevCartItems.filter((item) => item.id !== itemId)
+      );
+      setTotalPrice((prevPrice) => prevPrice - updatedPrice);
       console.log("Item removed from the cart.");
     } catch (error) {
       console.error("Error removing item from the cart:", error);
     }
   };
 
+  useEffect(() => {
+    const totalproductcalprice = productCart.reduce(
+      (total, product) => total + product.quantity * product.price,
+      0
+    );
+    setTotalpPrice(totalproductcalprice);
+  }, [productCart]);
+
+  // remove of product function...
+  const removeProduct = async (item) => {
+    try {
+      if (user) {
+        const productdoc = doc(db, "product" + user.uid, item.id);
+        const pprice = item.price * item.quantity;
+        await deleteDoc(productdoc);
+        // setTotalpPrice((lastprice) => lastprice - pprice);
+      } else {
+        const localproduct = JSON.parse(localStorage.getItem("cart"));
+        const updatedproductcart = localproduct.filter(
+          (prod) => prod.id !== item.id
+        );
+        localStorage.setItem("cart", JSON.stringify(updatedproductcart));
+        setProductCart(updatedproductcart);
+        // const pprice = item.price * item.quantity;
+        // setTotalpPrice((lastprice) => lastprice - pprice);
+      }
+    } catch (error) {
+      console.log("error removing product from cart :", error);
+    }
+  };
+
+  useEffect(() => {
+    // Check if the user is authenticated
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      setUser(user);
+      console.log(user);
+    });
+    return () => unsubscribe();
+  }, [user]);
+
+  useEffect(() => {
+    const fetchProductsCart = async () => {
+      try {
+        if (user) {
+          const cartQuery = query(collection(db, "product" + user.uid));
+          const unsubscribe = onSnapshot(cartQuery, (snapshot) => {
+            const productofcart = snapshot.docs.map((doc) => ({
+              id: doc.id,
+              ...doc.data(),
+            }));
+            setProductCart(productofcart);
+            console.log("product in cart : ", productofcart);
+          });
+        } else {
+          const productlocal = JSON.parse(localStorage.getItem("cart"));
+          if (productlocal) {
+            setProductCart(productlocal);
+            console.log("local product : ", productlocal);
+          }
+        }
+      } catch (error) {
+        console.error("error fetching product cart : ", error);
+      }
+    };
+    fetchProductsCart();
+  }, [user]);
 
   const updateTotalPrice = (updatedPrice) => {
     setTotalPrice((prevTotalPrice) => prevTotalPrice + updatedPrice);
   };
 
+  const updateTotalpPrice = (updatedPrice) => {
+    setTotalpPrice((prevTotalPrice) => prevTotalPrice + updatedPrice);
+  };
 
   const placeOrder = async () => {
     try {
@@ -127,14 +204,10 @@ const Cart = () => {
         timestamp: serverTimestamp(), // You can use Firestore's server timestamp
       });
 
-      const ownerPhoneNumber = '+916205053855'; // Replace with the owner's phone number
-    const message = `New order placed by user ${userId}. Total price: ₹${totalPrice}`;
-    
-    await sendSMS(ownerPhoneNumber, message);
+      const ownerPhoneNumber = "+916205053855"; // Replace with the owner's phone number
+      const message = `New order placed by user ${userId}. Total price: ₹${totalPrice}`;
 
-
-
-
+      await sendSMS(ownerPhoneNumber, message);
 
       setButtonText("Order Placed");
       setOrderPlaced(true); // Set orderPlaced to true when the order is placed
@@ -173,26 +246,63 @@ const Cart = () => {
   return (
     <div className="cart-page">
       <div className="cart-container">
-        <div className="price-details"><h2>Your Cart</h2></div>
+        <div className="price-details">
+          <h2>Your Cart</h2>
+        </div>
+
         <ul>
           {cartItems.map((item, index) => (
-            <ItemOfCart key={item.id} item={item} onRemove={removeFromCart} updateTotalPrice={updateTotalPrice} />
+            <ItemOfCart
+              key={item.id}
+              item={item}
+              onRemove={removeFromCart}
+              updateTotalPrice={updateTotalPrice}
+            />
+          ))}
+        </ul>
+        {/* <div className="price-details">
+          <h2>Added Accessories</h2>
+        </div> */}
+        <ul className="cart-p-cards">
+          {productCart.map((item, index) => (
+            <CartProductCard
+              product={item}
+              removeProduct={removeProduct}
+              updateTotalpPrice={updateTotalpPrice}
+            />
           ))}
         </ul>
       </div>
 
       <div className="bill-container">
-        <div className="price-details"><h2>Price Details</h2></div>
+        <div className="price-details">
+          <h2>Price Details</h2>
+        </div>
         <div className="cart-total">
-          <p>Adding all items</p>
-          <p>Total Price: ₹{totalPrice}</p>
+          <p className="total-price-p">
+            Cakes Price: <span>₹{totalPrice}</span>
+          </p>
+          <p className="total-price-p">
+            Added Accessories price : <span>₹{totalpPrice}</span>
+          </p>
+          <p className="total-price-p">
+            Delivery charges : <span className="free">Free</span>
+          </p>
+          <p className="total-price-cart">
+            Total price : <span>₹{totalPrice + totalpPrice}</span>
+          </p>
         </div>
         {orderPlaced ? (
           <button className="order-button-green" disabled>
             Order Placed
           </button>
         ) : (
-          <button className={`order-button${buttonText === "Order Placed" ? " green" : ""}`} onClick={placeOrder}>
+          <button
+            className={`order-button${
+              buttonText === "Order Placed" ? " green" : ""
+            }`}
+            onClick={placeOrder}
+          >
             {buttonText}
           </button>
         )}

@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .review-stars {
   display: flex;
   font-size: 30px;

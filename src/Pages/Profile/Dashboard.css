@@ -1,37 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+.dashboard {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-position: center;
+  background-size: cover;
+  background-image: url("https://static.vecteezy.com/system/resources/previews/004/930/819/original/cake-outline-icon-on-blue-background-candy-background-with-seamless-pattern-for-print-decorative-party-wallpaper-free-vector.jpg");
+}
 
-
-  .dashboard{
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-position: center;
-    background-size: cover;
-    background-image: url("https://static.vecteezy.com/system/resources/previews/004/930/819/original/cake-outline-icon-on-blue-background-candy-background-with-seamless-pattern-for-print-decorative-party-wallpaper-free-vector.jpg");
-    
-  }
-  
-  
-  .dashboard__container {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    background-color: #dcdcdc;
-    padding: 50px 30px;
-    border-radius: 15px;
-  }
-  .dashboard__btn {
-    padding: 10px;
-    font-size: 18px;
-    margin-top: 10px;
-    border: none;
-    color: white;
-    background-color:#a87ef7;
-  }
-  .dashboard div {
-    margin-top: 7px;
-  }
-
-  
+.dashboard__container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-color: #dcdcdc;
+  padding: 50px 30px;
+  border-radius: 15px;
+}
+.dashboard__btn {
+  padding: 10px;
+  font-size: 18px;
+  margin-top: 10px;
+  border: none;
+  color: white;
+  background-color: #a87ef7;
+}
+.dashboard div {
+  margin-top: 7px;
+}

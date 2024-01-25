@@ -1,6 +1,6 @@
 import React from "react";
 import "./styles.css";
-import styles from "./index.css";
+import "./index.css";
 import Home from "./Pages/Home";
 import About from "./Pages/About";
 import Cakes from "./Pages/Cakes";

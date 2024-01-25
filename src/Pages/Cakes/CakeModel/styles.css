@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* styles.css (or your CSS file) */
 .modal {
   position: fixed;
@@ -60,15 +64,14 @@
   margin-left: 5px;
   border-radius: 5px;
 
-
   font-size: 25px;
   font-weight: 400;
-  background-color: #FFD1DA;
+  background-color: #ffd1da;
   margin-bottom: 10px;
 }
 
-.pound-options button:hover{
-  background-color: #FBA1B7;
+.pound-options button:hover {
+  background-color: #fba1b7;
 }
 
 .message {
@@ -83,30 +86,26 @@
   border-radius: 5px;
   font-size: 20px;
   font-weight: 500;
-  background-color: #FFA41B;
+  background-color: #ffa41b;
   transition: background-color 0.3s ease; /* Animation duration and easing */
-
 }
 
-
-.add-cart-button:hover{
+.add-cart-button:hover {
   background-color: #ff7300;
-
 }
-.add-cart-button.clicked{
-  background-color:  #49a316;
+.add-cart-button.clicked {
+  background-color: #49a316;
   color: #ffffff;
 }
 
-.add-cart-button.clicked:hover{
+.add-cart-button.clicked:hover {
   background-color: #328104;
 }
 
-.added-text{
+.added-text {
   text-align: center;
   padding: 10px;
 }
-
 
 @media screen and (max-width: 700px) {
   .modal-content {
