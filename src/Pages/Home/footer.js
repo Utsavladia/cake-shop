@@ -10,7 +10,7 @@ function Footer() {
     <>
       <div className="footer">
         <div className="footer-content-div">
-          <h2>Contact </h2>
+          <h2 className="">Contact </h2>
           <a href="./about" target="_blank" rel="noopener noreferrer">
             About us
           </a>

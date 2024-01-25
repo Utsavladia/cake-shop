@@ -92,24 +92,27 @@
 
 .plus-button {
   color: black;
-  width: 25px;
+  width: 28px;
   height: 32px;
   font-size: larger;
   background: none;
-  border: 1px solid black;
+  border: 2px solid gray;
   vertical-align: middle;
+  border-radius: 6px;
+  margin: 0px 4px;
 }
 
-.plus-button-q {
-  color: black;
-  width: 25px;
-  height: 32px;
-  font-size: large;
-  background: none;
-  margin: 0px 8px;
-  vertical-align: middle;
+.right:hover {
+  background-color: #59c61a;
+  color: white;
 }
+
+.left:hover {
+  background-color: red;
+  color: white;
+}
+
 .quantity-controls {
-  margin-right: 10px;
+  margin-right: 4px;
   display: inline-block;
 }

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./navstyles.css";
 
 export default function Nav() {
@@ -29,17 +29,17 @@ export default function Nav() {
   return (
     <div className="navitems">
       <ul className="nav-menu">
-        <Link to="/" className="nav-links">
+        <NavLink to="/" className="nav-links" exact>
           <i className="fa-solid fa-house"></i> Home
-        </Link>
-        <Link to="/cakes" className="nav-links">
+        </NavLink>
+        <NavLink to="/cakes" className="nav-links">
           <i className="fa-solid fa-cake-candles"></i>
           Cakes
-        </Link>
-        <Link to="/products" className="nav-links">
+        </NavLink>
+        <NavLink to="/products" className="nav-links">
           <i className="fa-solid fa-store"></i>
           Products
-        </Link>
+        </NavLink>
         {/* <Link to="/about" className="nav-links">
           <i className="fa-solid fa-phone"></i>
           contact
@@ -58,16 +58,16 @@ export default function Nav() {
               onMouseEnter={handleDropdownMouseEnter}
               onMouseLeave={handleDropdownMouseLeave}
             >
-              <Link to="/cart" className="dropdown-items">
+              <NavLink to="/cart" className="dropdown-items">
                 Cart
-              </Link>
+              </NavLink>
 
-              <Link to="/orders" className="dropdown-items">
+              <NavLink to="/orders" className="dropdown-items">
                 Orders
-              </Link>
-              <Link to="/login" className="dropdown-items">
+              </NavLink>
+              <NavLink to="/login" className="dropdown-items">
                 Login/out
-              </Link>
+              </NavLink>
               {/* <Link to="/admin" className="dropdown-items">
                 Admin
               </Link> */}

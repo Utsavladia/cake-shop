@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .home2 {
   height: auto;
   background-color: white;
@@ -187,6 +191,11 @@
 .footer-content-div a {
   text-decoration: none;
   color: #c9a68e; /* Use the default color */
+  transition: color 0.3s;
+}
+
+.footer-content-div a:hover {
+  color: #ff9900;
 }
 
 .icon-div {
