@@ -38,32 +38,43 @@ const CakeModal = ({ cake, onClose }) => {
   const updatedPrice = cake.price * pounds;
 
   const handleAddToCart = async () => {
-    if (!auth.currentUser) {
-      // Check if the user is authenticated
-      console.log(
-        "User is not logged in. Please log in to add items to the cart."
-      );
-      history.push("/login");
-      return;
-    }
     const cartItem = {
       cakeId: cake.id, // Assuming you have an 'id' property in your cake object
       pounds,
       message,
     };
-    const userId = auth.currentUser.uid;
-
-    try {
+    if (!auth.currentUser) {
+      // Check if the user is authenticated
+      console.log(
+        "User is not logged in. Please log in to add items to the cart."
+      );
       if (!addedToCart) {
-        await addDoc(collection(db, "cart" + userId), cartItem).then(() => {
-          console.log("added to cart");
-          setAddedToCart(true);
-        });
+        const localcakecart = JSON.parse(localStorage.getItem("cake")) || [];
+        localcakecart.push(cartItem);
+        localStorage.setItem("cake", JSON.stringify(localcakecart));
+        console.log("cake added to local cart");
+        console.log(localStorage.cake);
+        setAddedToCart(true);
       } else {
         history.push("/cart");
       }
-    } catch (error) {
-      console.error(error);
+
+      // history.push("/login");
+      // return;
+    } else {
+      const userId = auth.currentUser.uid;
+      try {
+        if (!addedToCart) {
+          await addDoc(collection(db, "cart" + userId), cartItem).then(() => {
+            console.log("added to cart");
+            setAddedToCart(true);
+          });
+        } else {
+          history.push("/cart");
+        }
+      } catch (error) {
+        console.error(error);
+      }
     }
   };
 

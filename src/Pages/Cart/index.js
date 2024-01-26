@@ -26,6 +26,7 @@ const Cart = () => {
   const [redirectTimer, setRedirectTimer] = useState(null); // Timer for redirection
   const [user, setUser] = useState(null);
   const [productCart, setProductCart] = useState([]);
+  const [change, setChange] = useState(true);
   const history = useHistory();
 
   const sendSMS = async (to, body) => {
@@ -77,35 +78,54 @@ const Cart = () => {
           .catch((error) => {
             console.error("Error getting cart items:", error);
           });
+      } else {
+        const localcakecart = JSON.parse(localStorage.getItem("cake"));
+        const localcakeid = localcakecart.map((item) => ({
+          id: item.cakeId,
+          ...item,
+        }));
+        setCartItems(localcakeid);
+        console.log(localcakeid);
       }
     });
 
     // Don't forget to unsubscribe when the component unmounts
     return () => unsubscribe();
-  }, []);
+  }, [change]);
 
   // remove of cake function...
   const removeFromCart = async (itemId, updatedPrice) => {
     try {
       // Check if the user is authenticated
       if (!auth.currentUser) {
+        const localcake = JSON.parse(localStorage.getItem("cake"));
+        console.log("itemId is ", itemId);
+        console.log("local cakes are ", localcake);
+        const cakeAfterRemove = localcake.filter(
+          (item) => item.cakeId !== itemId
+        );
+        console.log("cake in local cart after remove : ", cakeAfterRemove);
+        localStorage.setItem("cake", JSON.stringify(cakeAfterRemove));
+        setChange((last) => !last);
+        setTotalPrice((prevPrice) => prevPrice - updatedPrice);
+
         console.log(
           "User is not logged in. Please log in to remove items from the cart."
         );
         return;
+      } else {
+        const userId = auth.currentUser.uid;
+        const cartItemRef = doc(db, "cart" + userId, itemId);
+
+        // Delete the cart item document
+        await deleteDoc(cartItemRef);
+        // Update the UI by removing the deleted item from the cartItems state
+        setCartItems((prevCartItems) =>
+          prevCartItems.filter((item) => item.id !== itemId)
+        );
+        setTotalPrice((prevPrice) => prevPrice - updatedPrice);
+        console.log("Item removed from the cart.");
       }
-
-      const userId = auth.currentUser.uid;
-      const cartItemRef = doc(db, "cart" + userId, itemId);
-
-      // Delete the cart item document
-      await deleteDoc(cartItemRef);
-      // Update the UI by removing the deleted item from the cartItems state
-      setCartItems((prevCartItems) =>
-        prevCartItems.filter((item) => item.id !== itemId)
-      );
-      setTotalPrice((prevPrice) => prevPrice - updatedPrice);
-      console.log("Item removed from the cart.");
     } catch (error) {
       console.error("Error removing item from the cart:", error);
     }
