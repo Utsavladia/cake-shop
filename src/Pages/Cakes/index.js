@@ -16,6 +16,7 @@ const Home = () => {
 
   // Add a state variable to track the previous scroll position
   const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const filterRef = useRef(null);
 
   // search bar area scrolling effect
   useEffect(() => {
@@ -43,6 +44,22 @@ const Home = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [prevScrollPos]);
+
+  // const handleOutsideClick = (event) => {
+  //   if (filterRef.current && !filterRef.current.contains(event.target)) {
+  //     setIsFilterVisible((prev) => !prev);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   // Attach the event listener when the component mounts
+  //   document.addEventListener("click", handleOutsideClick);
+
+  //   // Detach the event listener when the component unmounts
+  //   return () => {
+  //     document.removeEventListener("click", handleOutsideClick);
+  //   };
+  // }, []);
 
   const handleFlavorButtonClick = (flavor) => {
     if (selectedFlavors.includes(flavor)) {
@@ -106,7 +123,10 @@ const Home = () => {
       </div>
 
       <div className="cake-area">
-        <div className={`filter-panel ${isFilterVisible ? "visible" : ""}`}>
+        <div
+          className={`filter-panel ${isFilterVisible ? "visible" : ""}`}
+          ref={filterRef}
+        >
           <div className="filter-parts">
             <h1>Flavours</h1>
             <div className="filter-buttons">

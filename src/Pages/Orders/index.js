@@ -64,7 +64,9 @@ const OrderHistoryPage = () => {
               <p className="order-id">Order ID: {order.id}</p>
             </span>
             <span>
-              <p>Date: {order.timestamp.toDate().toLocaleDateString()}</p>
+              <p className="order-date">
+                Date: {order.timestamp.toDate().toLocaleDateString()}
+              </p>
             </span>
           </div>
 
@@ -80,9 +82,7 @@ const OrderHistoryPage = () => {
             <h3>Total Price: ₹{order.totalPrice}</h3>
           </div>
 
-          {/* You can add more order details here */}
-          {/* Display the star rating system */}
-          <div className="order-rating">
+          {/* <div className="order-rating">
             <div className="stars">
               <p>Rate this order:</p>
               {[1, 2, 3, 4, 5].map((rating) => (
@@ -106,14 +106,14 @@ const OrderHistoryPage = () => {
                 />
               </label>
             </div>
-          </div>
+          </div> */}
 
-          <button
+          {/* <button
             className="submit-button"
             // onClick={() => submitRatingAndComment(order.id)}
           >
             Submit Rating & Comment
-          </button>
+          </button> */}
         </div>
       ))}
     </div>

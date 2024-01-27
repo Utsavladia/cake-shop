@@ -211,6 +211,7 @@ const Cart = () => {
       // Check if the user is authenticated
       if (!auth.currentUser) {
         console.log("User is not logged in. Please log in to place an order.");
+        history.push("/login");
         return;
       }
 
