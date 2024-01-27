@@ -3,9 +3,11 @@ import { db, auth } from "../../firebase";
 import { collection, query, getDocs, where, orderBy } from "firebase/firestore"; // Import the necessary Firestore functions
 import "./styles.css";
 import ItemOfOrders from "./ItemOfOrders";
+import ProductOrdered from "./ProductOrdered";
 
 const OrderHistoryPage = () => {
   const [orders, setOrders] = useState([]);
+  const [product, setProducts] = useState([]);
 
   useEffect(() => {
     // Add an authentication state change listener
@@ -77,9 +79,16 @@ const OrderHistoryPage = () => {
               ))}
             </ul>
           </div>
+          <div>
+            <ul>
+              {order.products.map((prod) => (
+                <ProductOrdered key={prod.id} product={prod} />
+              ))}
+            </ul>
+          </div>
 
           <div className="order-details-bottom">
-            <h3>Total Price: ₹{order.totalPrice}</h3>
+            <h3>Total Price: ₹{order.totalPrice + order.totalpPrice}</h3>
           </div>
 
           {/* <div className="order-rating">

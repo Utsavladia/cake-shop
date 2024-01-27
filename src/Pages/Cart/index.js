@@ -220,7 +220,9 @@ const Cart = () => {
       // Create a new order document in the "orders" collection
       const orderRef = await addDoc(collection(db, "orders"), {
         userId: userId,
-        items: cartItems, // Assuming cartItems contains the items in the cart
+        items: cartItems,
+        products: productCart, // Assuming cartItems contains the items in the cart
+        totalpPrice: totalpPrice, // Assuming cartItems contains the items in the cart
         totalPrice: totalPrice,
         timestamp: serverTimestamp(), // You can use Firestore's server timestamp
       });
@@ -240,10 +242,17 @@ const Cart = () => {
       cartQuerySnapshot.forEach(async (doc) => {
         await deleteDoc(doc.ref);
       });
+      const productcartref = collection(db, "product" + userId);
+      const productcartsnapshot = await getDocs(productcartref);
+      productcartsnapshot.forEach(async (doc) => {
+        await deleteDoc(doc.ref);
+      });
 
       // Clear the cart items in the component state
       setCartItems([]);
+      setProductCart([]);
       setTotalPrice(0);
+      setTotalpPrice(0);
 
       // Set up a timer to redirect after 2 seconds
       const timer = setTimeout(() => {

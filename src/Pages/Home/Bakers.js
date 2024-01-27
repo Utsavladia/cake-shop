@@ -28,7 +28,7 @@ function Bakers() {
 
   return (
     <>
-      <div>
+      <div className="bakers-tw">
         Delicious and best quality
         <br></br>products like
         <span className="bakers-text" ref={el} />

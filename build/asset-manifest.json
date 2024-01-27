@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/static/css/main.216c9ce5.chunk.css",
-    "main.js": "/static/js/main.a8df7f95.chunk.js",
-    "main.js.map": "/static/js/main.a8df7f95.chunk.js.map",
+    "main.css": "/static/css/main.1fb73d3d.chunk.css",
+    "main.js": "/static/js/main.a637b213.chunk.js",
+    "main.js.map": "/static/js/main.a637b213.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.cab49317.js",
     "runtime-main.js.map": "/static/js/runtime-main.cab49317.js.map",
     "static/css/2.1ba447cc.chunk.css": "/static/css/2.1ba447cc.chunk.css",
-    "static/js/2.78e81e55.chunk.js": "/static/js/2.78e81e55.chunk.js",
-    "static/js/2.78e81e55.chunk.js.map": "/static/js/2.78e81e55.chunk.js.map",
+    "static/js/2.1d4f1cc1.chunk.js": "/static/js/2.1d4f1cc1.chunk.js",
+    "static/js/2.1d4f1cc1.chunk.js.map": "/static/js/2.1d4f1cc1.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.903f7bdc7e3beeb524bbe59f51c5c2e0.js": "/precache-manifest.903f7bdc7e3beeb524bbe59f51c5c2e0.js",
+    "precache-manifest.83ebc001cfd6aeef554af745b53ac184.js": "/precache-manifest.83ebc001cfd6aeef554af745b53ac184.js",
     "service-worker.js": "/service-worker.js",
     "static/css/2.1ba447cc.chunk.css.map": "/static/css/2.1ba447cc.chunk.css.map",
-    "static/css/main.216c9ce5.chunk.css.map": "/static/css/main.216c9ce5.chunk.css.map",
-    "static/js/2.78e81e55.chunk.js.LICENSE.txt": "/static/js/2.78e81e55.chunk.js.LICENSE.txt",
-    "static/js/main.a8df7f95.chunk.js.LICENSE.txt": "/static/js/main.a8df7f95.chunk.js.LICENSE.txt",
+    "static/css/main.1fb73d3d.chunk.css.map": "/static/css/main.1fb73d3d.chunk.css.map",
+    "static/js/2.1d4f1cc1.chunk.js.LICENSE.txt": "/static/js/2.1d4f1cc1.chunk.js.LICENSE.txt",
+    "static/js/main.a637b213.chunk.js.LICENSE.txt": "/static/js/main.a637b213.chunk.js.LICENSE.txt",
     "static/media/Black-Forest-Cakes_web.webp": "/static/media/Black-Forest-Cakes_web.895577c6.webp",
     "static/media/Butterscotch-Cakes_web.webp": "/static/media/Butterscotch-Cakes_web.5e4e595b.webp",
     "static/media/Dollcake.png": "/static/media/Dollcake.1eb83b31.png",
@@ -39,8 +39,8 @@
   "entrypoints": [
     "static/js/runtime-main.cab49317.js",
     "static/css/2.1ba447cc.chunk.css",
-    "static/js/2.78e81e55.chunk.js",
-    "static/css/main.216c9ce5.chunk.css",
-    "static/js/main.a8df7f95.chunk.js"
+    "static/js/2.1d4f1cc1.chunk.js",
+    "static/css/main.1fb73d3d.chunk.css",
+    "static/js/main.a637b213.chunk.js"
   ]
 }

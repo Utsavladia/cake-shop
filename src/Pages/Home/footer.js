@@ -2,7 +2,7 @@ import React from "react";
 import "./home2.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle, faInstagram } from "@fortawesome/free-brands-svg-icons";
-import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+import { faWhatsapp, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 
 function Footer() {
@@ -89,7 +89,19 @@ function Footer() {
         </div>
       </div>
       <div className="auther">
-        <p>&copy; 2024 Sawariya. Designed and developed by Utsav Ladia.</p>
+        <p>
+          <span className="developed-by">
+            &copy; 2024 Sawariya. Designed and developed by
+          </span>{" "}
+          <a
+            href="https://linkedin.com/in/utsav-ladia"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FontAwesomeIcon icon={faLinkedin} color="#ffdbc3" />
+          </a>
+          ..Utsav Ladia
+        </p>
       </div>
     </>
   );

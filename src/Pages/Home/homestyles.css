@@ -100,3 +100,44 @@
     height: 97vh;
   }
 }
+
+@media (min-width: 768px) {
+  .home {
+    height: 90vh;
+    padding: 120px 36px;
+  }
+  .shop-name {
+    font-size: 4rem /* 72px */;
+  }
+  .bakers-tw {
+    font-size: 1.5rem;
+  }
+
+  /* Your styles for medium-sized screens go here */
+}
+
+/* Styles for screens with a minimum width of 992 pixels (lg screens) */
+@media (min-width: 992px) {
+  .home {
+    height: 120vh;
+    padding: 160px 64px;
+  }
+  .bakers-tw {
+    font-size: 2.5rem;
+  }
+
+  /* Your styles for large screens go here */
+}
+
+@media (min-width: 1280px) {
+  .shop-name {
+    font-size: 110px;
+  }
+  .bakers-tw {
+    font-size: 2.25rem;
+  }
+  .home {
+    height: 140vh;
+    padding: 160px 64px;
+  }
+}
