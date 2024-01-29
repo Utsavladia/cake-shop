@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./styles.css";
 import { auth, db } from "../../firebase";
 import {
@@ -10,12 +10,16 @@ import {
   addDoc,
   serverTimestamp,
   onSnapshot,
+  getDoc,
+  updateDoc,
 } from "firebase/firestore";
 import ItemOfCart from "./cartItem";
 import { onAuthStateChanged } from "firebase/auth";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import CartProductCard from "./CartProductCard";
+import AddressOrder from "./AddressOrder";
+import { SubtitlesTwoTone } from "@material-ui/icons";
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -27,6 +31,20 @@ const Cart = () => {
   const [user, setUser] = useState(null);
   const [productCart, setProductCart] = useState([]);
   const [change, setChange] = useState(true);
+  const [scrollToCart, setScrollToCart] = useState(false);
+  const cartAddressRef = useRef(null);
+  const paymentRef = useRef(null);
+  const [paymentMethod, setPaymentMethod] = useState(null);
+  const [scrollPayment, setScrollPayment] = useState(false);
+  const [address, setAddress] = useState({
+    name: "",
+    street: "",
+    city: "",
+    state: "",
+    zipCode: "",
+    phone: "",
+  });
+
   const history = useHistory();
 
   const sendSMS = async (to, body) => {
@@ -162,6 +180,20 @@ const Cart = () => {
     }
   };
 
+  const uploadAddress = async (address) => {
+    try {
+      const userDocRef = doc(db, "users", user.uid);
+      const userDocSnapshot = await getDoc(userDocRef);
+      const currentAddresses = userDocSnapshot.data().addresses || [];
+      await updateDoc(userDocRef, {
+        addresses: [...currentAddresses, address],
+      });
+      console.log("address added to firebase");
+    } catch (error) {
+      console.error("error adding the address in firebase ", error);
+    }
+  };
+
   useEffect(() => {
     // Check if the user is authenticated
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -171,6 +203,7 @@ const Cart = () => {
     return () => unsubscribe();
   }, [user]);
 
+  // fetching the product from the cart of user
   useEffect(() => {
     const fetchProductsCart = async () => {
       try {
@@ -206,6 +239,7 @@ const Cart = () => {
     setTotalpPrice((prevTotalPrice) => prevTotalPrice + updatedPrice);
   };
 
+  // place order function...
   const placeOrder = async () => {
     try {
       // Check if the user is authenticated
@@ -214,51 +248,57 @@ const Cart = () => {
         history.push("/login");
         return;
       }
+      // if address is not set then scroll to address...
+      else if (Object.values(address).some((value) => value.trim() === "")) {
+        setScrollToCart(true);
+      } else if (paymentMethod === null) {
+        setScrollPayment(true);
+      } else {
+        const userId = auth.currentUser.uid;
 
-      const userId = auth.currentUser.uid;
+        // Create a new order document in the "orders" collection
+        const orderRef = await addDoc(collection(db, "orders"), {
+          userId: userId,
+          items: cartItems,
+          products: productCart, // Assuming cartItems contains the items in the cart
+          totalpPrice: totalpPrice, // Assuming cartItems contains the items in the cart
+          totalPrice: totalPrice,
+          timestamp: serverTimestamp(),
+          address: address, // You can use Firestore's server timestamp
+        });
 
-      // Create a new order document in the "orders" collection
-      const orderRef = await addDoc(collection(db, "orders"), {
-        userId: userId,
-        items: cartItems,
-        products: productCart, // Assuming cartItems contains the items in the cart
-        totalpPrice: totalpPrice, // Assuming cartItems contains the items in the cart
-        totalPrice: totalPrice,
-        timestamp: serverTimestamp(), // You can use Firestore's server timestamp
-      });
+        // const ownerPhoneNumber = "+916205053855"; // Replace with the owner's phone number
+        // const message = `New order placed by user ${userId}. Total price: ₹${totalPrice}`;
 
-      const ownerPhoneNumber = "+916205053855"; // Replace with the owner's phone number
-      const message = `New order placed by user ${userId}. Total price: ₹${totalPrice}`;
+        // await sendSMS(ownerPhoneNumber, message);
 
-      await sendSMS(ownerPhoneNumber, message);
+        setButtonText("Order Placed");
+        setOrderPlaced(true); // Set orderPlaced to true when the order is placed
 
-      setButtonText("Order Placed");
-      setOrderPlaced(true); // Set orderPlaced to true when the order is placed
+        // Clear the cart after placing order
+        const cartCollectionRef = collection(db, "cart" + userId);
+        const cartQuerySnapshot = await getDocs(cartCollectionRef);
+        cartQuerySnapshot.forEach(async (doc) => {
+          await deleteDoc(doc.ref);
+        });
+        const productcartref = collection(db, "product" + userId);
+        const productcartsnapshot = await getDocs(productcartref);
+        productcartsnapshot.forEach(async (doc) => {
+          await deleteDoc(doc.ref);
+        });
 
-      // Optionally, you can clear the cart after placing the order
-      // Clear the cart in Firestore (delete all documents in the user's cart collection)
-      const cartCollectionRef = collection(db, "cart" + userId);
-      const cartQuerySnapshot = await getDocs(cartCollectionRef);
-      cartQuerySnapshot.forEach(async (doc) => {
-        await deleteDoc(doc.ref);
-      });
-      const productcartref = collection(db, "product" + userId);
-      const productcartsnapshot = await getDocs(productcartref);
-      productcartsnapshot.forEach(async (doc) => {
-        await deleteDoc(doc.ref);
-      });
+        // Clear the cart items in the component state
+        setCartItems([]);
+        setProductCart([]);
+        setTotalPrice(0);
+        setTotalpPrice(0);
 
-      // Clear the cart items in the component state
-      setCartItems([]);
-      setProductCart([]);
-      setTotalPrice(0);
-      setTotalpPrice(0);
-
-      // Set up a timer to redirect after 2 seconds
-      const timer = setTimeout(() => {
-        history.push("/orders"); // Redirect to the orders page
-      }, 2000);
-      setRedirectTimer(timer);
+        // Set up a timer to redirect after 2 seconds
+        const timer = setTimeout(() => {
+          history.push("/orders"); // Redirect to the orders page
+        }, 2000);
+        setRedirectTimer(timer);
+      }
     } catch (error) {
       console.error("Error placing the order:", error);
     }
@@ -273,35 +313,86 @@ const Cart = () => {
     };
   }, [redirectTimer]);
 
+  useEffect(() => {
+    if (scrollToCart && cartAddressRef.current) {
+      cartAddressRef.current.scrollIntoView({ behavior: "smooth" });
+      // Reset the state after scrolling
+      setScrollToCart(false);
+    }
+  }, [scrollToCart]);
+
+  useEffect(() => {
+    if (scrollPayment && paymentRef.current) {
+      paymentRef.current.scrollIntoView({ behavior: "smooth" });
+      setScrollPayment(false);
+    }
+  }, [scrollPayment]);
+
   return (
     <div className="cart-page">
-      <div className="cart-container">
-        <div className="price-details">
-          <h2>Your Cart</h2>
-        </div>
-
-        <ul>
-          {cartItems.map((item, index) => (
-            <ItemOfCart
-              key={item.id}
-              item={item}
-              onRemove={removeFromCart}
-              updateTotalPrice={updateTotalPrice}
-            />
-          ))}
-        </ul>
-        {/* <div className="price-details">
+      <div className="cart-left">
+        <div className="cart-container">
+          <div className="price-details">
+            <h2>Your Cart</h2>
+          </div>
+          <ul>
+            {cartItems.map((item, index) => (
+              <ItemOfCart
+                key={item.id}
+                item={item}
+                onRemove={removeFromCart}
+                updateTotalPrice={updateTotalPrice}
+              />
+            ))}
+          </ul>
+          {/* <div className="price-details">
           <h2>Added Accessories</h2>
         </div> */}
-        <ul className="cart-p-cards">
-          {productCart.map((item, index) => (
-            <CartProductCard
-              product={item}
-              removeProduct={removeProduct}
-              updateTotalpPrice={updateTotalpPrice}
-            />
-          ))}
-        </ul>
+          <ul className="cart-p-cards">
+            {productCart.map((item, index) => (
+              <CartProductCard
+                product={item}
+                removeProduct={removeProduct}
+                updateTotalpPrice={updateTotalpPrice}
+              />
+            ))}
+          </ul>
+        </div>
+        {/* for setting the addresss part below the cart items */}
+        <div ref={cartAddressRef} className="cart-address">
+          <AddressOrder
+            address={address}
+            setAddress={setAddress}
+            uploadAddress={uploadAddress}
+          />
+        </div>
+        <div ref={paymentRef} className="cart-address">
+          <div className="cart-container">
+            <div className="price-details">
+              <h2>Payment Method</h2>
+            </div>
+            <div className="payment-data-selected">
+              <label>
+                <input
+                  type="radio"
+                  value="cod"
+                  checked={paymentMethod === "cod"}
+                  onChange={() => setPaymentMethod("cod")}
+                />{" "}
+                Cash On Delivery
+              </label>
+              <label>
+                <input
+                  value="other"
+                  type="radio"
+                  checked={paymentMethod === "other"}
+                  onChange={() => setPaymentMethod("other")}
+                />
+                Other Payement Methods
+              </label>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div className="bill-container">

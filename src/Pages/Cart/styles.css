@@ -4,14 +4,26 @@
 
 .cart-page {
   width: 100%;
-  padding: 70px 30px;
+  padding: 70px 30px 30px 30px;
   display: flex;
+  max-height: 100vh;
 }
 
 .cart-container {
-  width: 70%;
-  height: auto;
+  min-height: 90vh;
 }
+
+.cart-left {
+  flex: 1;
+  height: auto;
+  overflow-y: auto;
+  max-height: 90vh;
+  width: 70%;
+}
+
+.cart-address {
+}
+
 .bill-container {
   width: 30%;
   height: auto;
@@ -434,4 +446,158 @@ as needed for other content elements */
   .bill-container {
     margin: 50px 0px 0px 0px;
   }
+  .cart-left {
+    width: 100%;
+    height: auto;
+    overflow-y: visible;
+    max-height: none;
+  }
+  .cart-container {
+    min-height: none;
+    margin-bottom: 50px;
+    padding-top: 40px;
+  }
+
+  .address-data {
+    padding: 10px 15px;
+  }
+
+  .address-inputs {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .address-data select {
+    font-size: small;
+    padding: 10px 10px 5px 10px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    width: 80%;
+  }
+  .address-data input {
+    font-size: small;
+    padding: 10px 10px 5px 10px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    width: 80%;
+    /* border-radius: 5px; */
+  }
+  .save-address {
+    padding: 15px 30px;
+  }
+
+  .save-address button {
+    height: auto;
+    padding: 10px 32px;
+    font-size: small;
+    /* border-radius: 10px; */
+  }
+  .save-address-b {
+    margin-right: 10px;
+  }
+}
+
+.address-data {
+  padding: 20px 30px;
+  background-color: #efefef;
+  width: 95%;
+  margin: 10px 5px;
+  border-radius: 12px;
+}
+
+.address-data-selected {
+  padding: 20px 30px;
+  background-color: #efefef;
+  width: 95%;
+  margin: 10px 5px;
+  border-radius: 12px;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.payment-data-selected {
+  padding: 30px 30px;
+  background-color: #efefef;
+  width: 95%;
+  margin: 10px 5px;
+  border-radius: 12px;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.payment-data-selected label {
+  display: flex;
+  width: 100%;
+}
+.payment-data-selected input {
+  width: auto;
+  margin-right: 20px;
+  margin-left: 10px;
+}
+
+.address-data-selected input {
+  font-size: medium;
+  padding: 12px 20px 5px 12px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 20px;
+  width: auto;
+}
+
+.label-address {
+  display: flex;
+  font-weight: 600;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.address-name {
+  margin-right: 20px;
+}
+
+.text-address {
+  font-size: small;
+  display: flex;
+  gap: 10px;
+}
+
+.new-address-button {
+  color: #2874f0;
+  font-weight: 600;
+  font-family: sans-serif;
+}
+
+.address-data select,
+input {
+  font-size: medium;
+  padding: 12px 20px 5px 12px;
+  margin-bottom: 30px;
+  margin-left: 30px;
+  width: 30%;
+  /* border-radius: 5px; */
+}
+
+.address-inputs {
+  margin: 30px 0px 20px;
+}
+
+.save-address {
+  padding: 15px 30px;
+}
+
+.save-address button {
+  height: auto;
+  padding: 12px 32px;
+  font-size: medium;
+  /* border-radius: 10px; */
+}
+
+.save-address-b {
+  background-color: #2874f0;
+  color: white;
+  margin-right: 30px;
+  font-weight: 600;
 }
