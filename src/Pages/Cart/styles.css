@@ -350,10 +350,122 @@
   font-size: medium;
 }
 
+.address-data {
+  padding: 20px 30px;
+  background-color: #efefef;
+  width: 95%;
+  margin: 10px 5px;
+  border-radius: 12px;
+}
+
+.address-data-selected {
+  padding: 20px 30px;
+  background-color: #efefef;
+  width: 95%;
+  margin: 10px 5px;
+  border-radius: 12px;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.payment-data-selected {
+  padding: 30px 30px;
+  background-color: #efefef;
+  width: 95%;
+  margin: 10px 5px;
+  border-radius: 12px;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.payment-data-selected label {
+  display: flex;
+  width: 100%;
+}
+.payment-data-selected input {
+  width: auto;
+  margin-right: 20px;
+  margin-left: 10px;
+}
+
+.address-data-selected input {
+  font-size: medium;
+  padding: 12px 20px 5px 12px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 20px;
+  width: auto;
+}
+
+.label-address {
+  display: flex;
+  font-weight: 600;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.address-name {
+  margin-right: 20px;
+}
+
+.text-address {
+  font-size: small;
+  display: flex;
+  gap: 10px;
+}
+
+.new-address-button {
+  color: #2874f0;
+  font-weight: 600;
+  font-family: sans-serif;
+}
+
+.address-data select {
+  font-size: medium;
+  padding: 12px 20px 5px 12px;
+  margin-bottom: 30px;
+  margin-left: 30px;
+  width: 30%;
+  /* border-radius: 5px; */
+}
+
+.address-data input {
+  font-size: medium;
+  padding: 12px 20px 5px 12px;
+  margin-bottom: 30px;
+  margin-left: 30px;
+  width: 30%;
+}
+
+.address-inputs {
+  margin: 30px 0px 20px;
+}
+
+.save-address {
+  padding: 15px 30px;
+}
+
+.save-address button {
+  height: auto;
+  padding: 12px 32px;
+  font-size: medium;
+  /* border-radius: 10px; */
+}
+
+.save-address-b {
+  background-color: #2874f0;
+  color: white;
+  margin-right: 30px;
+  font-weight: 600;
+}
+
 /* Add more styles 
 as needed for other content elements */
 
-@media screen and (max-width: 700px) {
+@media only screen and (max-width: 700px) {
   .cart-container {
     width: 100%;
   }
@@ -480,124 +592,23 @@ as needed for other content elements */
     margin-bottom: 20px;
     margin-left: 10px;
     width: 80%;
-    /* border-radius: 5px; */
+  }
+  .name-input {
+    width: 80%;
   }
   .save-address {
-    padding: 15px 30px;
+    padding: 15px 10px;
+    display: flex;
   }
 
   .save-address button {
     height: auto;
-    padding: 10px 32px;
-    font-size: small;
+    padding: 10px 20px;
+    font-size: smaller;
+
     /* border-radius: 10px; */
   }
   .save-address-b {
     margin-right: 10px;
   }
-}
-
-.address-data {
-  padding: 20px 30px;
-  background-color: #efefef;
-  width: 95%;
-  margin: 10px 5px;
-  border-radius: 12px;
-}
-
-.address-data-selected {
-  padding: 20px 30px;
-  background-color: #efefef;
-  width: 95%;
-  margin: 10px 5px;
-  border-radius: 12px;
-  display: flex;
-  gap: 10px;
-  align-items: flex-start;
-}
-
-.payment-data-selected {
-  padding: 30px 30px;
-  background-color: #efefef;
-  width: 95%;
-  margin: 10px 5px;
-  border-radius: 12px;
-  display: flex;
-  gap: 10px;
-  align-items: flex-start;
-  flex-direction: column;
-}
-
-.payment-data-selected label {
-  display: flex;
-  width: 100%;
-}
-.payment-data-selected input {
-  width: auto;
-  margin-right: 20px;
-  margin-left: 10px;
-}
-
-.address-data-selected input {
-  font-size: medium;
-  padding: 12px 20px 5px 12px;
-  margin-bottom: 0px;
-  margin-left: 0px;
-  margin-right: 20px;
-  width: auto;
-}
-
-.label-address {
-  display: flex;
-  font-weight: 600;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-
-.address-name {
-  margin-right: 20px;
-}
-
-.text-address {
-  font-size: small;
-  display: flex;
-  gap: 10px;
-}
-
-.new-address-button {
-  color: #2874f0;
-  font-weight: 600;
-  font-family: sans-serif;
-}
-
-.address-data select,
-input {
-  font-size: medium;
-  padding: 12px 20px 5px 12px;
-  margin-bottom: 30px;
-  margin-left: 30px;
-  width: 30%;
-  /* border-radius: 5px; */
-}
-
-.address-inputs {
-  margin: 30px 0px 20px;
-}
-
-.save-address {
-  padding: 15px 30px;
-}
-
-.save-address button {
-  height: auto;
-  padding: 12px 32px;
-  font-size: medium;
-  /* border-radius: 10px; */
-}
-
-.save-address-b {
-  background-color: #2874f0;
-  color: white;
-  margin-right: 30px;
-  font-weight: 600;
 }
