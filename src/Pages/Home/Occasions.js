@@ -3,7 +3,7 @@ export const Occasion = [
     title: "Birthday",
     url: "../Cakes",
     image:
-      "https://www.nymetroparents.com/columnpic2/stress-free-birthdays.jpg",
+      "https://images.pexels.com/photos/7099900/pexels-photo-7099900.jpeg?auto=compress&cs=tinysrgb&w=400&lazy=load",
     alt: "anniversary image"
   },
   {
