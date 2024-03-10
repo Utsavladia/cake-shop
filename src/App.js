@@ -31,7 +31,7 @@ export default function App() {
           <Route path="/register" component={Register} />
           <Route path="/reset" component={Reset} />
           <Route path="/dashboard" component={Dashboard} />
-          <Route path="/admin" component={Admin} />
+          <Route path="/adminyash" component={Admin} />
         </Switch>
       </div>
     </Router>

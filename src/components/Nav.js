@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import "./navstyles.css";
+import AdminNav from "./AdminNav";
 
 export default function Nav() {
   const [clicked, setClicked] = useState(false);
@@ -40,6 +41,7 @@ export default function Nav() {
           <i className="fa-solid fa-store"></i>
           Products
         </NavLink>
+
         {/* <Link to="/about" className="nav-links">
           <i className="fa-solid fa-phone"></i>
           contact
@@ -68,12 +70,14 @@ export default function Nav() {
               <NavLink to="/login" className="dropdown-items">
                 Login/out
               </NavLink>
+
               {/* <Link to="/admin" className="dropdown-items">
                 Admin
               </Link> */}
             </ul>
           )}
         </li>
+        <AdminNav />
       </ul>
       {/* <div className="menu-icon" onClick={handleClick}>
         <i className={clicked ? " fa-solid fa-times" : " fa-solid fa-bars"}></i>

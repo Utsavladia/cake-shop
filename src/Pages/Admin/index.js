@@ -1,107 +1,86 @@
-// Admin.js
-import React, { useState } from "react";
-import { db } from "../../firebase";
 import "./styles.css";
-import { collection, addDoc } from "firebase/firestore";
+import React, { useEffect, useState } from "react";
+import { db } from "../../firebase";
+import { collection, onSnapshot, query, orderBy } from "firebase/firestore";
 
-export default function Admin() {
-  const [productName, setProductName] = useState("");
-  const [category, setCategory] = useState("");
-  const [details, setDetails] = useState("");
-  const [price, setPrice] = useState("");
-  const [others, setOthers] = useState("");
-  const [image, setImage] = useState("");
+const Admin = () => {
+  const [orders, setOrders] = useState([]);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  useEffect(() => {
+    const fetchOrders = async () => {
+      try {
+        const orderQuery = query(
+          collection(db, "orders"),
+          orderBy("timestamp", "desc")
+        );
+        const unsubscribe = onSnapshot(orderQuery, (snapshot) => {
+          const ordersData = snapshot.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+          }));
+          setOrders(ordersData);
+        });
 
-    try {
-      // Add the product to the "products" collection in Firestore
-      const docRef = await addDoc(collection(db, "products"), {
-        name: productName,
-        category: category,
-        details: details,
-        price: parseFloat(price),
-        others: others,
-        image: image,
-      });
+        return unsubscribe;
+      } catch (error) {
+        console.error("Error fetching admin orders data", error);
+      }
+    };
 
-      // Clear the input fields after adding the product
-      setProductName("");
-      setCategory("");
-      setDetails("");
-      setPrice("");
-      setOthers("");
-      setImage("");
-      alert("Product added successfully!");
-    } catch (error) {
-      console.error("Error adding product: ", error);
-      alert("Error adding product. Please try again.");
-    }
-  };
+    fetchOrders();
+  }, []);
 
   return (
-    <div className="admin-page">
-      <h2>Add New Product</h2>
-      <form onSubmit={handleSubmit} className="form-product">
-        <div>
-          <label htmlFor="productName">Product Name:</label>
-          <input
-            type="text"
-            id="productName"
-            value={productName}
-            onChange={(e) => setProductName(e.target.value)}
-            required
-          />
+    <div className="AdminPage">
+      {orders.map((order) => (
+        <div key={order.id} className="order-admin">
+          <span className="order-id-admin">Order ID: {order.id}</span>
+          <div className="admin-user-id">
+            <span className="admin-userid">User ID: {order.userId}</span>
+            <span className="admin-user-time">
+              Order Time: {order.timestamp.toDate().toString()}
+            </span>
+          </div>
+
+          {/* <p>Name: {order.address["name"]}</p> */}
+          {/*
+          <p>Phone: {order.address.phone}</p>
+          <p>Street: {order.address.street}</p>
+          <p>City: {order.address.city}</p>
+          <p>State: {order.address.state}</p>
+          <p>Pincode: {order.address.pincode}</p>
+          <h3>Items:</h3> */}
+          {/* <ul>
+            {order.items.map((item, index) => (
+              <li key={index}>
+                cake Id: {item.cakeId}, pounds :{item.pounds},{item.message}
+              </li>
+            ))}
+          </ul> */}
+          <ul>
+            {order.products.map((item, i) => (
+              <li
+                key={i}
+                style={{ display: "flex", gap: "10px", padding: "10px 30px" }}
+              >
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  style={{ maxWidth: "100px" }}
+                />
+                <h4>{item.name}</h4>
+                <p>Price: {item.price}</p>
+                <p>quantity: {item.quantity}</p>
+              </li>
+            ))}
+          </ul>
+          <h3 style={{ paddingLeft: "20px" }}>
+            Total Price: {order.totalPrice + order.totalpPrice}
+          </h3>
         </div>
-        <div>
-          <label htmlFor="category">Category:</label>
-          <input
-            type="text"
-            id="category"
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-          />
-        </div>
-        <div>
-          <label htmlFor="details">Details:</label>
-          <textarea
-            id="details"
-            value={details}
-            onChange={(e) => setDetails(e.target.value)}
-          />
-        </div>
-        <div>
-          <label htmlFor="price">Price:</label>
-          <input
-            type="text"
-            id="price"
-            value={price}
-            onChange={(e) => setPrice(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="others">Others:</label>
-          <input
-            type="text"
-            id="others"
-            value={others}
-            onChange={(e) => setOthers(e.target.value)}
-          />
-        </div>
-        <div>
-          <label htmlFor="image">image:</label>
-          <input
-            type="text"
-            id="image"
-            value={image}
-            onChange={(e) => setImage(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit">Add Product</button>
-      </form>
+      ))}
     </div>
   );
-}
+};
+
+export default Admin;
