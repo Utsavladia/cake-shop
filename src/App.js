@@ -14,6 +14,7 @@ import Reset from "./Pages/Profile/Reset";
 import Dashboard from "./Pages/Profile/Dashboard";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Admin from "./Pages/Admin";
+import ProtectedAdmin from "./ProtectedAdmin";
 
 export default function App() {
   return (
@@ -31,7 +32,7 @@ export default function App() {
           <Route path="/register" component={Register} />
           <Route path="/reset" component={Reset} />
           <Route path="/dashboard" component={Dashboard} />
-          <Route path="/adminyash" component={Admin} />
+          <ProtectedAdmin path="/adminyash" component={Admin} />
         </Switch>
       </div>
     </Router>
