@@ -20,19 +20,24 @@ const AdminNav = () => {
     };
 
     fetchadmin();
-  }, []);
 
-  const auth = getAuth();
-  onAuthStateChanged(auth, (user) => {
-    if (user.uid == admin) {
-      setIsAdmin(true);
-      // ...
-    } else {
-      setIsAdmin(false);
-      // User is signed out
-      // ...
-    }
-  });
+    const auth = getAuth();
+
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user && user.uid == admin) {
+        setIsAdmin(true);
+        // ...
+      } else {
+        setIsAdmin(false);
+        // User is signed out
+        // ...
+      }
+    });
+
+    return () => unsubscribe();
+  }, [admin]);
+
+  if (!isAdmin) return null;
   return (
     <div>
       {isAdmin && (
